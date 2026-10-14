@@ -1,3 +1,4 @@
+## DAY -1
 ### CIA Activity — Common SQL Mistakes for Junior Data Analysts
 
 **Question asked:**
@@ -103,3 +104,24 @@ GROUP BY c.cust_id, c.cust_name;
 INNER JOIN is useful for analysing customers with purchases, while LEFT JOIN helps identify inactive customers for marketing and customer re-engagement campaigns.
 
 **Status:** CIA insights documented.
+______________________________________________________________________
+
+## DAY -3 
+5 Retail‑Business KPIs You Can Derive with SQL GROUP BY
+#	KPI	What it tells the business	Typical tables/columns	Sample GROUP BY query
+1. Total Sales Revenue	Overall topline; helps set targets and compare periods.	sales (sale_id, sale_date, store_id, product_id, qty, unit_price)	sql\nSELECT DATE_TRUNC('month', sale_date) AS month,\n SUM(qty * unit_price) AS revenue\nFROM sales\nGROUP BY month\nORDER BY month;
+
+2. Average Transaction Value (ATV)	Avg amount per receipt – indicator of upselling effectiveness.	sales (sale_id, sale_date, receipt_no, qty, unit_price)	sql\nSELECT DATE_TRUNC('day', sale_date) AS day,\n AVG(qty * unit_price) AS avg_txn_value\nFROM sales\nGROUP BY day\nORDER BY day;
+
+3. Units Sold per Product Category	Spot‑light top‑selling categories & inventory needs.	sales + products (product_id, category)	sql\nSELECT p.category,\n SUM(s.qty) AS units_sold\nFROM sales s\nJOIN products p ON s.product_id = p.product_id\nGROUP BY p.category\nORDER BY units_sold DESC;
+
+4. Store‑wise Gross Margin %	Profitability per outlet; helps decide store expansions/closures.	sales, products (product_id, cost_price)	sql\nSELECT s.store_id,\n (SUM(s.qty * (s.unit_price - p.cost_price)) /\n SUM(s.qty * s.unit_price)) * 100 AS gross_margin_pct\nFROM sales s\nJOIN products p ON s.product_id = p.product_id\nGROUP BY s.store_id\nORDER BY gross_margin_pct DESC;
+
+5. Repeat‑Customer Rate	Share of customers who bought more than once – a loyalty health metric.	sales (sale_id, sale_date, customer_id)	sql\nWITH cust_counts AS (\n SELECT customer_id,\n COUNT(DISTINCT sale_id) AS txn_cnt\n FROM sales\n GROUP BY customer_id\n)\nSELECT ROUND(100.0 * SUM(CASE WHEN txn_cnt > 1 THEN 1 ELSE 0 END) / COUNT(*), 2) AS repeat_customer_pct\nFROM cust_counts;
+
+Quick tips for implementation
+Date granularity – use DATE_TRUNC('day'|'month'|'quarter') (PostgreSQL) or DATE_FORMAT(...,'%Y-%m') (MySQL) to roll‑up time.
+Performance – add indexes on the columns used in the GROUP BY (e.g., sale_date, store_id, product_id).
+Null safety – wrap calculations with COALESCE(...,0) if any cost/price fields may be NULL.
+These five KPIs give a solid snapshot of revenue health, customer behavior, product performance, and store profitability—exactly the kind of metrics a Data Analyst Intern at an Indian retail firm (e.g., Big Bazaar, Reliance Retail, or a regional grocery chain) would be expected to produce. 
+
