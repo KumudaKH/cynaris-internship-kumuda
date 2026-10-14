@@ -1,2 +1,6 @@
-"total_records"
-"10"
+"customer_name","city","product","amount"
+"Rahul","Bengaluru","Laptop","55000"
+"Sneha","Hubballi","Monitor","12000"
+"Kiran","Mysuru","Laptop","60000"
+"Meera","Hubballi","Laptop","52000"
+"Vikram","Pune","Monitor","24000"
