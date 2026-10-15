@@ -127,7 +127,7 @@ These five KPIs give a solid snapshot of revenue health, customer behavior, prod
 
 ______________________________________________________________________
 
-### DAY - 4
+## DAY - 4
 # CTE vs Subquery – When to Use Which & What the Performance Impact Is
 
 | Aspect                                         | **Common Table Expression (CTE)**                                                                                                                                                                                                                                                                                                                         | **Inline Subquery**                                                                                                                                                                                                             |
@@ -174,3 +174,63 @@ ______________________________________________________________________
 * **Use an inline subquery** or a derived table when the intermediate result is large and used only once, or when you are on a platform such as Oracle where CTEs default to materialization and you want to avoid extra temporary storage.
 * **Always check the execution plan** (`EXPLAIN`, `SET SHOWPLAN_ALL`, etc.) after writing a query. This tells you whether the engine materialized the CTE or flattened the subquery, allowing you to adjust with hints (`INLINE`, `MATERIALIZE`) or by refactoring.
 
+___________________________________________________________________________________________________________
+
+# Week 1, Day 5 — Python Pandas Basics
+
+## 1. Task
+
+Exploratory Data Analysis (EDA) using Python Pandas.
+
+## 2. CIA Research Query
+
+**Question:** What are the most useful Pandas methods for exploratory data analysis?
+
+## 3. Key Learnings
+
+I learned that Pandas provides several useful methods for quickly understanding, cleaning, and analysing datasets.
+
+* **Dataset inspection:** `head()`, `tail()`, `shape`, and `info()` help understand the dataset's structure, dimensions, and column data types.
+* **Statistical analysis:** `describe()` provides summary statistics such as mean, standard deviation, minimum, and maximum.
+* **Missing-value detection:** `isnull().sum()` identifies missing values in each column.
+* **Categorical analysis:** `value_counts()` and `nunique()` help identify category frequencies and unique values.
+* **Data filtering:** Boolean indexing helps extract rows that meet specific conditions.
+* **Grouping and aggregation:** `groupby()` and `agg()` summarise data by categories.
+* **Sorting:** `sort_values()` arranges records based on selected columns.
+* **Correlation analysis:** `corr()` helps examine relationships between numerical variables.
+* **Pivot tables:** `pivot_table()` summarises data across multiple dimensions.
+* **Visualisation:** `hist()` and `boxplot()` help examine distributions and potential outliers.
+
+## 4. Practical Application
+
+I applied Pandas concepts to an employee mental health and burnout dataset. The workflow included loading a CSV file, inspecting its structure, identifying missing values, filtering records, grouping data, calculating aggregate statistics, and exporting cleaned data.
+
+## 5. Important Code Examples
+
+```python
+# Inspect the dataset
+print(df.shape)
+print(df.head())
+df.info()
+
+# Summary statistics
+print(df.describe())
+
+# Identify missing values
+print(df.isnull().sum())
+
+# Count categorical values
+print(df["gender"].value_counts())
+
+# Group and aggregate data
+print(
+    df.groupby("job_role").agg(
+        Average_Stress=("stress_level", "mean"),
+        Average_Burnout=("burnout_score", "mean")
+    )
+)
+
+
+## 6. Key Takeaway
+
+Pandas simplifies exploratory data analysis by providing methods to inspect, clean, filter, group, and summarise data efficiently. These skills are useful for identifying data-quality issues, understanding patterns, and preparing datasets for further analysis.
