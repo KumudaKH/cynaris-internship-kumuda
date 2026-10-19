@@ -234,3 +234,6 @@ print(
 ## 6. Key Takeaway
 
 Pandas simplifies exploratory data analysis by providing methods to inspect, clean, filter, group, and summarise data efficiently. These skills are useful for identifying data-quality issues, understanding patterns, and preparing datasets for further analysis.
+
+____________________________________________________________________________________________________________
+
