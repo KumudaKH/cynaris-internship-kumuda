@@ -145,3 +145,6 @@ Selecting the right chart helps analysts communicate trends, comparisons, distri
 | **Concepts Covered**    | Chart selection, data relationships, distributions, trends, comparisons, and dashboard best practices |
 | **Practical Component** | Python examples for eight types of visualisations                                                     |
 | **Key Learning**        | Select the chart type that communicates the intended relationship clearly and effectively.            |
+
+____________________________________________________________________________________________________________
+
