@@ -279,3 +279,109 @@ print(report.head(10))
 5. **Use `ignore_index=True` when appropriate:** When concatenating rows, this option creates a new sequential index instead of retaining the original row indexes.
 
 By understanding these two functions, you can manage most common data-ingestion and data-enrichment operations in retail analytics pipelines. These skills are particularly useful for a **Data Analyst Intern working with an e-commerce company in Bangalore**.
+
+____________________________________________________________________________________________________________
+
+# DAY - 3
+
+# 📋 Standard EDA Checklist for Professional Data Analysts
+
+> A reusable checklist that you can copy into a Jupyter Notebook, Google Colab, or VS Code project and use for every new data analysis task.
+
+| Phase                                             | Checklist Item                                                                                                                                                                                                                                                                                                                                                                                 | Why It Matters                                                                                                           | Typical Pandas / Plotting Code                                                                                                                                                                 |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1️⃣ Understand the Problem**                    | • Examine the business brief and KPI definitions.<br>• Identify the required tables and data sources.                                                                                                                                                                                                                                                                                          | Defines the scope of the analysis and determines which variables are necessary.                                          | `# No code – just read the spec`                                                                                                                                                               |
+| **2️⃣ Load and Catalogue Data**                   | • Import all required files from CSV, Excel, databases, or APIs.<br>• Verify row and column counts and inferred data types.                                                                                                                                                                                                                                                                    | Ensures that the analysis uses the exact data supplied by the stakeholder.                                               | `python`<br>`import pandas as pd`<br>`df = pd.read_csv('sales.csv')`<br>`print(df.shape)`<br>`print(df.head())`                                                                                |
+| **3️⃣ Data Dictionary and Metadata**              | • Create a table mapping each column to its description, data type, expected range, and business meaning.                                                                                                                                                                                                                                                                                      | Helps every team member, including yourself in the future, interpret the dataset correctly.                              | `metadata = pd.DataFrame({'col':df.columns, 'type':df.dtypes})`                                                                                                                                |
+| **4️⃣ Initial Data Profiling**                    | • Use `df.info()` to inspect data types and non-null counts.<br>• Run `df.describe(include='all')`.<br>• Check missing values with `df.isnull().sum()` and their percentages.<br>• Use `df.nunique()` to examine cardinality.                                                                                                                                                                  | Helps identify data-quality issues early, including incorrect data types, excessive missing values, and low variability. | `python`<br>`df.info()`<br>`print(df.describe(include='all'))`<br>`print(df.isnull().mean().sort_values(ascending=False))`                                                                     |
+| **5️⃣ Clean and Preprocess**                      | • Convert columns to appropriate data types using `astype` and `pd.to_datetime`.<br>• Handle missing values by dropping, imputing, or flagging them.<br>• Remove duplicates using `drop_duplicates`.<br>• Trim whitespace and correct inconsistent categories, such as “Bengaluru” and “B’lore”.<br>• Detect outliers using IQR or Z-scores and decide whether to retain, cap, or remove them. | Produces an analysis-ready DataFrame and helps prevent poor-quality input from affecting the results.                    | `python`<br>`# Example: date parsing & category cleaning`<br>`df['order_dt'] = pd.to_datetime(df['order_dt'], errors='coerce')`<br>`df['city'] = df['city'].str.strip().str.title()`           |
+| **6️⃣ Feature Engineering (Optional but Common)** | • Derive time-based features such as year, month, weekday, and quarter.<br>• Calculate ratios or per-unit metrics, such as `sales_per_qty`.<br>• Encode categorical variables using `pd.get_dummies` or ordinal mapping.                                                                                                                                                                       | Creates more informative variables for subsequent modelling and deeper analysis.                                         | `python`<br>`df['order_month'] = df['order_dt'].dt.month`                                                                                                                                      |
+| **7️⃣ Univariate Exploration**                    | • Use histograms or KDE plots for numerical columns.<br>• Create bar plots for categorical frequencies.<br>• Use box plots to examine distributions and outliers.                                                                                                                                                                                                                              | Helps reveal the distribution of individual variables, including skewness, multiple peaks, and gaps.                     | `python`<br>`import matplotlib.pyplot as plt`<br>`import seaborn as sns`<br>`sns.histplot(df['sales'], kde=True)`<br>`sns.countplot(y='city', data=df, order=df['city'].value_counts().index)` |
+| **8️⃣ Bivariate and Multivariate Analysis**       | • Calculate correlation matrices using `df.corr()` and visualise them with heatmaps.<br>• Create scatter plots or line plots for numerical variables.<br>• Use box plots or violin plots to compare numerical and categorical variables.<br>• Generate pivot tables and group-by aggregations for business KPIs.                                                                               | Helps uncover relationships, potential drivers, and patterns that may warrant further investigation into causality.      | `python`<br>`sns.heatmap(df.corr(), annot=True, cmap='coolwarm')`<br>`sns.boxplot(x='category', y='sales', data=df)`                                                                           |
+| **9️⃣ Segmentation Checks**                       | • Group data by important dimensions such as store, city, product line, and month.<br>• Compare KPIs across segments, such as average basket size.                                                                                                                                                                                                                                             | Aligns the analysis with business reporting structures and hierarchies.                                                  | `python`<br>`df.groupby(['city','month'])['sales'].sum().reset_index()`                                                                                                                        |
+| **🔟 Data-Quality Audit**                         | • Recheck missing values after cleaning.<br>• Validate totals against source reports, such as monthly revenue.<br>• Record assumptions and manual corrections.                                                                                                                                                                                                                                 | Improves stakeholder confidence and creates an auditable record of the analysis.                                         | `assert df['sales'].sum() == reported_total`                                                                                                                                                   |
+| **1️⃣1️⃣ Summary and Storytelling**               | • Prepare a one-page “EDA Insights” slide covering key statistics, major patterns, data-quality observations, and recommended next steps.<br>• Include at least one visual for every major finding.                                                                                                                                                                                            | Converts raw exploration into actionable business intelligence.                                                          | Use PowerPoint, Google Slides, or a Markdown notebook export.                                                                                                                                  |
+| **1️⃣2️⃣ Save Analysis Artifacts**                | • Export the cleaned DataFrame using `df.to_parquet('cleaned_sales.parquet')`.<br>• Save visualisations using `fig.savefig('sales_by_city.png')`.<br>• Track the notebook using Git.                                                                                                                                                                                                           | Supports reproducibility and makes it easier to hand over work or use the results in downstream modelling.               | `python`<br>`df.to_parquet('data/clean_sales.parquet')`<br>`fig.savefig('outputs/sales_hist.png')`                                                                                             |
+
+---
+
+## Quick-Start Template
+
+Copy and adapt the following template for a new EDA project.
+
+```python
+# -------------------------------------------------
+# 1️⃣ Load
+# -------------------------------------------------
+import pandas as pd, seaborn as sns, matplotlib.pyplot as plt
+
+df = pd.read_csv('sales.csv')
+
+# -------------------------------------------------
+# 2️⃣ Profile
+# -------------------------------------------------
+print(df.shape)
+df.info()
+print(df.isnull().mean().sort_values(ascending=False))
+
+# -------------------------------------------------
+# 3️⃣ Clean
+# -------------------------------------------------
+df['order_dt'] = pd.to_datetime(df['order_dt'], errors='coerce')
+df['city'] = df['city'].str.title().str.strip()
+df.drop_duplicates(inplace=True)
+
+# -------------------------------------------------
+# 4️⃣ Feature engineering
+# -------------------------------------------------
+df['order_month'] = df['order_dt'].dt.month
+
+# -------------------------------------------------
+# 5️⃣ Univariate
+# -------------------------------------------------
+sns.histplot(df['sales'], kde=True)
+plt.title('Sales distribution')
+plt.show()
+
+# -------------------------------------------------
+# 6️⃣ Bivariate
+# -------------------------------------------------
+sns.boxplot(x='city', y='sales', data=df)
+plt.xticks(rotation=45)
+plt.show()
+
+# -------------------------------------------------
+# 7️⃣ Group-by KPI
+# -------------------------------------------------
+monthly_sales = (
+    df.groupby('order_month')['sales']
+    .sum()
+    .reset_index()
+)
+print(monthly_sales)
+
+# -------------------------------------------------
+# 8️⃣ Save
+# -------------------------------------------------
+df.to_parquet('clean_sales.parquet')
+```
+
+---
+
+## Tips for Indian-Centric Projects
+
+* **Fiscal calendar:** Many Indian companies follow a financial year from April to March. Create an `fy` column using the following code:
+
+  ```python
+  df['fy'] = df['order_dt'].dt.year + (df['order_dt'].dt.month >= 4)
+  ```
+
+* **Currency formatting:** Format sales values in Indian rupees for reporting:
+
+  ```python
+  df['sales'].apply(lambda x: f'₹{x:,.2f}')
+  ```
+
+* **Regional encoding:** If your dataset contains state-level information, map state names to ISO-2 codes to simplify geographical visualisation, for example, using `plotly.express.choropleth`.
+
+Follow the checklist, mark each completed item, and maintain a **reproducible, stakeholder-ready EDA workflow** for every project. 🚀
