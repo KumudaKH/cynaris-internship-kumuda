@@ -385,3 +385,27 @@ df.to_parquet('clean_sales.parquet')
 * **Regional encoding:** If your dataset contains state-level information, map state names to ISO-2 codes to simplify geographical visualisation, for example, using `plotly.express.choropleth`.
 
 Follow the checklist, mark each completed item, and maintain a **reproducible, stakeholder-ready EDA workflow** for every project. 🚀
+
+____________________________________________________________________________________________________________
+
+## CIA Research Activity: Handling Missing Values in Time-Series Data
+
+**Query:** What is the best strategy for handling missing values in a time-series dataset?
+
+### Key Learnings
+
+1. Identify the percentage and pattern of missing values before selecting an imputation method.
+2. Forward-fill carries the last known value forward and can be useful when observations change gradually.
+3. Backward-fill uses the next known value, but may introduce future information into past observations.
+4. Linear interpolation estimates missing values between known observations.
+5. Seasonal and model-based methods may be appropriate when data has strong seasonal patterns or long missing intervals.
+6. Add missing-value indicators when the absence of data may itself provide useful information.
+7. Validate imputation methods using visualisation, statistical comparisons, and back-testing.
+
+### Conclusion
+
+The best imputation method depends on the dataset, missing-data pattern, time interval, and business requirements. Time-series data should retain its temporal order, and future information must not leak into past observations during forecasting.
+
+### Application to Data Cleaning
+
+For my Software Professional Salaries 2022 dataset, I used appropriate missing-value handling techniques based on column types. The time-series methods researched here would be more suitable for datasets containing time-ordered observations.
