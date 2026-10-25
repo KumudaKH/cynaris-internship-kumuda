@@ -1,0 +1,78 @@
+dataContractSpecification: 0.9.3
+
+id: software-professional-salaries-v1
+
+info:
+title: Software Professional Salaries Data Contract
+version: 1.0.0
+owner: student-data-producer
+consumer: bi-dashboard-team
+description: >
+Defines schema, quality rules, freshness expectations,
+and privacy requirements for salary analytics.
+
+models:
+salary_records:
+fields:
+Rating:
+type: number
+required: true
+minimum: 0
+maximum: 5
+
+```
+  Company Name:
+    type: string
+    required: true
+    classification: internal
+
+  Job Title:
+    type: string
+    required: true
+    classification: internal
+
+  Salary:
+    type: integer
+    required: true
+    minimum: 1
+    classification: confidential
+
+  Salaries Reported:
+    type: integer
+    required: true
+    minimum: 1
+
+  Location:
+    type: string
+    required: true
+    classification: internal
+
+  Employment Status:
+    type: string
+    required: true
+
+  Job Roles:
+    type: string
+    required: true
+```
+
+quality:
+completeness_target: 99.9
+salary_must_be_positive: true
+rating_range: [0, 5]
+duplicate_record_policy: investigate
+
+freshness:
+requirement: Verify source publication date before dashboard refresh
+
+privacy:
+pii_review_required: true
+mask_personal_identifiers: true
+restrict_access_to_confidential_salary_data: true
+
+sla:
+dashboard_refresh: Within 24 hours after a verified source update
+
+changePolicy:
+breakingChangesRequireApproval: true
+notifyConsumerBeforeSchemaChange: true

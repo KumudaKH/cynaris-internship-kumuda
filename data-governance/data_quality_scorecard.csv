@@ -1,0 +1,7 @@
+Dimension,Score_Percent,Evidence
+Completeness,100.0,1 missing cells out of 182160
+Accuracy,,Requires comparison with trusted source data
+Consistency,100.0,0 blank strings in selected text columns
+Timeliness,,Source freshness date is not yet verified
+Uniqueness,100.0,0 exact duplicate rows
+Validity,100.0,"Checks rating 0–5, positive salary, positive report count"
