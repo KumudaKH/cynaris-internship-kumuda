@@ -1,0 +1,3 @@
+Method,Execution Time (seconds)
+Python List Comprehension,0.16396909998729825
+NumPy Vectorisation,0.005370500031858683

@@ -409,3 +409,75 @@ The best imputation method depends on the dataset, missing-data pattern, time in
 ### Application to Data Cleaning
 
 For my Software Professional Salaries 2022 dataset, I used appropriate missing-value handling techniques based on column types. The time-series methods researched here would be more suitable for datasets containing time-ordered observations.
+
+____________________________________________________________________________________________________________
+
+# Week 2 Day 5 – NumPy for Data
+
+## 1. Topics Covered
+
+* NumPy arrays: 1D, 2D, and 3D arrays
+* Vectorized operations and arithmetic calculations
+* Aggregation using axes
+* Boolean masking and fancy indexing
+* Statistical analysis: mean, median, standard deviation, and percentiles
+* Correlation between numerical variables
+* NumPy broadcasting and practical data analysis
+* Performance comparison between NumPy and Python loops
+* Numerical data analysis using a real-world dataset
+
+## 2. What Did You Work on Today?
+
+Today, I explored NumPy for numerical computing and data analysis using Python. I created one-dimensional, two-dimensional, and three-dimensional arrays and performed arithmetic operations using vectorization.
+
+I practiced aggregation operations across different axes, boolean masking, and fancy indexing to filter and select data efficiently. I also calculated statistical measures, including mean, median, standard deviation, and percentiles, and explored correlation between numerical variables.
+
+I learned about NumPy broadcasting and applied it to a retail sales example. I used broadcasting to calculate revenue by multiplying units sold by product prices and to apply different discount rates to individual stores without explicitly repeating array values.
+
+Additionally, I worked on comparing NumPy vectorized operations with Python loops using one million values to understand performance differences. I also explored how NumPy can be used to analyze numerical columns from a real-world salary dataset.
+
+## 3. NumPy Broadcasting – Key Learnings
+
+* Broadcasting allows arithmetic operations between arrays with compatible shapes.
+* NumPy compares dimensions from right to left.
+* Dimensions are compatible when they are equal or when one of them is 1.
+* `np.newaxis` can add a dimension to make arrays compatible.
+* Broadcasting simplifies calculations involving prices, taxes, discounts, and other numerical data.
+* Broadcasting avoids explicitly creating repeated copies of smaller arrays, improving memory efficiency in many operations.
+
+## 4. Tools and Technologies Used
+
+* Python
+* NumPy
+* Pandas
+* Jupyter Notebook
+* Matplotlib
+* Git and GitHub
+* Salary dataset for numerical data analysis
+
+## 5. Challenges and Blockers
+
+I encountered a file path issue while loading the salary dataset into Jupyter Notebook. I am working on identifying the correct CSV file location and ensuring that the dataset loads successfully. I also practiced understanding array shapes and broadcasting rules to perform calculations without shape-mismatch errors.
+
+## 6. Key Takeaways
+
+* NumPy provides efficient numerical computations through vectorization.
+* Array shapes and axes are important when performing multidimensional calculations.
+* Boolean masking and fancy indexing help select specific data efficiently.
+* Statistical functions help summarize and understand numerical datasets.
+* Broadcasting reduces the need for explicit loops and repeated arrays.
+* NumPy vectorization can significantly improve performance for large numerical computations compared with standard Python loops.
+
+## 7. Deliverable
+
+**File:** `numpy_analysis.ipynb`
+
+The notebook covers NumPy arrays, vectorized operations, indexing, statistical analysis, broadcasting, and performance benchmarking.
+
+## 8. Next Steps
+
+* Resolve the dataset path issue and complete the salary dataset analysis.
+* Verify the benchmark results and notebook outputs.
+* Review the notebook and save all completed cells.
+* Commit and push the deliverable to the required GitHub branch.
+* Submit the pull request and obtain feedback through the CIA platform.
