@@ -481,3 +481,28 @@ The notebook covers NumPy arrays, vectorized operations, indexing, statistical a
 * Review the notebook and save all completed cells.
 * Commit and push the deliverable to the required GitHub branch.
 * Submit the pull request and obtain feedback through the CIA platform.
+
+___________________________________________________________________________________________________________
+
+### Day 6 — Data Governance: Quality, Contracts & Great Expectations
+
+**Work Completed:**
+
+* Profiled the Software Professional Salaries dataset containing 22,770 records and 8 columns.
+* Identified missing values and checked for duplicate records.
+* Implemented data quality validation checks using Python, Pandas, and Great Expectations.
+* Tested the validation system by injecting sample errors, including missing job titles, negative salaries, and invalid ratings.
+* Created a data cleaning script to handle missing company names while preserving the original dataset.
+* Generated an HTML data validation report.
+* Drafted a YAML data contract defining schema expectations, quality rules, privacy requirements, and freshness expectations.
+* Prepared a data quality scorecard.
+* Organized project files for version control and GitHub submission.
+
+**Tools & Technologies:**
+Python, Pandas, Great Expectations, YAML, CSV, HTML, Git, and GitHub.
+
+**Challenges Faced:**
+The original dataset contained a missing company name, causing one validation check to fail. I tested the validation system using intentionally corrupted records and verified that it detected the injected data quality issues. I then created a separate cleaned dataset to handle the missing company name without modifying the original source data.
+
+**Key Learning:**
+Learned how to implement data quality checks, identify and document data quality issues, test validation rules through error injection, define data contracts, and generate reports to support data governance.
