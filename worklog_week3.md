@@ -134,3 +134,79 @@ https://drive.google.com/file/d/1vu02PCGy6A0MRHWNDJOldtz94m3zYR1j/view?usp=shari
 Learned how executive dashboard design combines KPI prioritization, appropriate chart selection, consistent formatting, interactivity, performance optimization, and data governance.
 
 These practices help transform raw business data into clear, actionable insights that support faster and more informed decisions.
+
+____________________________________________________________________________________________________________
+
+# CIA Activity: Difference Between a DAX Measure and a Calculated Column
+
+## Objective
+
+To understand the differences between DAX measures and calculated columns in Power BI, including their calculation methods, storage requirements, and applications in business reporting.
+
+## 1. Calculated Column
+
+A calculated column creates a value for each row in a table using a DAX expression. The results are calculated during data refresh and stored in the data model.
+
+**Example:**
+
+```dax
+LineTotal = Sales[Qty] * Sales[UnitPrice]
+```
+
+**Explanation:**
+This formula calculates the total amount for each sales transaction by multiplying the quantity by the unit price. The result can be used in table visuals, filters, and other calculations.
+
+**Applications:**
+
+* Calculating profit for individual transactions.
+* Creating product categories or customer classifications.
+* Generating row-level flags for business analysis.
+
+## 2. DAX Measure
+
+A measure performs calculations dynamically when a visual or query requests a result. Its output depends on the current filter context, including slicers, report filters, and visual selections.
+
+**Example:**
+
+```dax
+Total Sales = SUM(Sales[LineTotal])
+```
+
+**Explanation:**
+This measure calculates total sales by adding the values in the LineTotal column. The result automatically changes when users filter the report by store, product, or date.
+
+**Applications:**
+
+* Calculating total sales and profit.
+* Monitoring key performance indicators (KPIs).
+* Comparing monthly and yearly business performance.
+* Creating interactive dashboards.
+
+## 3. Key Differences
+
+| Aspect       | Calculated Column                          | Measure                                                  |
+| ------------ | ------------------------------------------ | -------------------------------------------------------- |
+| Calculation  | Evaluated for each row                     | Evaluated when a result is requested                     |
+| Storage      | Results are stored in the model            | Stores the expression rather than a result for every row |
+| Context      | Primarily uses row context                 | Primarily uses filter context                            |
+| Common usage | Row-level calculations and classifications | Aggregations and dynamic business metrics                |
+| Example      | Line Total                                 | Total Sales                                              |
+
+## 4. Business Application
+
+Retail companies can use calculated columns to determine the value of individual transactions and measures to analyse overall sales performance.
+
+For example, a retail company can calculate the total amount of each transaction using a calculated column and then create a measure to display total revenue by store, product category, or month.
+
+This helps managers identify high-performing products, compare store performance, and make informed business decisions.
+
+## 5. Key Insights Learned
+
+* Calculated columns are suitable for row-level calculations and values that need to be stored in the data model.
+* Measures are useful for dynamic calculations that respond to filters and slicers.
+* Measures generally avoid the storage required for a separate calculated value in every row, although their performance depends on the calculation and data model.
+* Choosing the correct approach helps improve the efficiency and flexibility of Power BI reports.
+
+## Conclusion
+
+This CIA activity helped me understand when to use DAX measures and calculated columns in Power BI. I learned that calculated columns are appropriate for row-level calculations, whereas measures are better suited for dynamic aggregations and business performance analysis. These concepts are essential for developing interactive dashboards and effective business intelligence solutions.
