@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salary Dataset Data Quality Report</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 35px;
+    background: #f5f7fa;
+    color: #222;
+}
+h1, h2 { color: #243b53; }
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th { background: #243b53; color: white; }
+.pass { color: green; font-weight: bold; }
+.fail { color: #c62828; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Data Quality Validation Report</h1>
+
+<div class="card">
+<p><strong>Dataset:</strong> Software Professional Salaries 2022</p>
+<p><strong>Rows:</strong> 22,770</p>
+<p><strong>Columns:</strong> 8</p>
+<p><strong>Generated:</strong> 2026-10-25 13:32:27</p>
+<p><strong>Overall validation:</strong>
+<span class="pass">
+PASSED
+</span></p>
+<p><strong>Checks passed:</strong> 8</p>
+<p><strong>Checks failed:</strong> 0</p>
+</div>
+
+<h2>Expectation Results</h2>
+<table>
+<tr>
+<th>Expectation</th>
+<th>Column</th>
+<th>Status</th>
+<th>Unexpected Count</th>
+</tr>
+
+    <tr>
+      <td>expect_table_row_count_to_be_between</td>
+      <td>Whole dataset</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_not_be_null</td>
+      <td>Company Name</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_not_be_null</td>
+      <td>Job Title</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_not_be_null</td>
+      <td>Salary</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_be_between</td>
+      <td>Salary</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_be_between</td>
+      <td>Rating</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_be_between</td>
+      <td>Salaries Reported</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+    <tr>
+      <td>expect_column_values_to_be_in_set</td>
+      <td>Employment Status</td>
+      <td class="pass">PASS</td>
+      <td>0</td>
+    </tr>
+    
+</table>
+
+<div class="card">
+<h2>Recommendations</h2>
+<ul>
+<li>Investigate and resolve missing company names.</li>
+<li>Keep salary values positive and ratings within the permitted range.</li>
+<li>Run validation before refreshing downstream dashboards.</li>
+<li>Review dataset freshness and source reliability.</li>
+</ul>
+</div>
+</body>
+</html>
