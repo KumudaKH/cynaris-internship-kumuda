@@ -1,0 +1,269 @@
+{
+  "success": true,
+  "results": [
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_table_row_count_to_be_between",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "min_value": 1
+        },
+        "meta": {},
+        "id": "dd026be4-ef79-4159-be7d-9ff88a30f9d7",
+        "severity": "critical"
+      },
+      "result": {
+        "observed_value": 22770
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Company Name"
+        },
+        "meta": {},
+        "id": "e3688ae5-8c82-494f-af56-be8ee5a6fcec",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Job Title"
+        },
+        "meta": {},
+        "id": "45e996ae-cf18-402a-9e89-512b331e5c36",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Salary"
+        },
+        "meta": {},
+        "id": "452b7d40-6b56-4f91-8a6a-062566795f77",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Salary",
+          "min_value": 1.0
+        },
+        "meta": {},
+        "id": "a5c97379-a403-4303-b977-6480269e8874",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Rating",
+          "min_value": 0.0,
+          "max_value": 5.0
+        },
+        "meta": {},
+        "id": "e2f01f22-8556-448b-9c7c-00bba195f9c6",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_be_between",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Salaries Reported",
+          "min_value": 1.0
+        },
+        "meta": {},
+        "id": "f5dea34f-cf32-42a0-bc14-3af629b42fe1",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "type": "expect_column_values_to_be_in_set",
+        "kwargs": {
+          "batch_id": "salary_pandas_source-salary_dataframe",
+          "column": "Employment Status",
+          "value_set": [
+            "Full Time",
+            "Intern",
+            "Contractor",
+            "Trainee"
+          ]
+        },
+        "meta": {},
+        "id": "b4a58c3f-196b-455d-bbb0-d67a3253e5c7",
+        "severity": "critical"
+      },
+      "result": {
+        "element_count": 22770,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    }
+  ],
+  "suite_name": "salary_data_quality_suite",
+  "suite_parameters": {},
+  "statistics": {
+    "evaluated_expectations": 8,
+    "successful_expectations": 8,
+    "unsuccessful_expectations": 0,
+    "success_percent": 100.0
+  },
+  "meta": {
+    "great_expectations_version": "1.24.1",
+    "batch_spec": {
+      "batch_data": "PandasDataFrame"
+    },
+    "batch_markers": {
+      "ge_load_time": "20261025T080225.128935Z",
+      "pandas_data_fingerprint": "15b72edf7cb20874a28f42f24d4f475b"
+    },
+    "active_batch_definition": {
+      "datasource_name": "salary_pandas_source",
+      "data_connector_name": "fluent",
+      "data_asset_name": "salary_dataframe",
+      "batch_identifiers": {
+        "dataframe": "<DATAFRAME>"
+      }
+    }
+  },
+  "id": null
+}
