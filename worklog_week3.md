@@ -136,7 +136,7 @@ Learned how executive dashboard design combines KPI prioritization, appropriate 
 These practices help transform raw business data into clear, actionable insights that support faster and more informed decisions.
 
 ____________________________________________________________________________________________________________
-
+# Week 3 — Day 2
 # CIA Activity: Difference Between a DAX Measure and a Calculated Column
 
 ## Objective
@@ -210,3 +210,62 @@ This helps managers identify high-performing products, compare store performance
 ## Conclusion
 
 This CIA activity helped me understand when to use DAX measures and calculated columns in Power BI. I learned that calculated columns are appropriate for row-level calculations, whereas measures are better suited for dynamic aggregations and business performance analysis. These concepts are essential for developing interactive dashboards and effective business intelligence solutions.
+
+____________________________________________________________________________________________________________
+
+# Week 3 – Day 3: Excel for Analysis
+
+## 1. Objective
+
+The objective of this session was to understand and apply Excel's advanced data analysis features, focusing on Power Query, PivotTables, PivotCharts, KPI calculations, and dashboard development.
+
+## 2. Key Learnings
+
+I explored several Excel features commonly used by professional data analysts:
+
+* **Excel Tables:** Learned how structured tables automatically expand when new records are added and support easier formula management.
+* **Dynamic Array Functions:** Reviewed functions such as FILTER, SORT, UNIQUE, XLOOKUP, and SEQUENCE for retrieving, sorting, and manipulating data efficiently.
+* **Conditional Formatting:** Understood how to highlight important values, identify negative margins, and flag KPIs that fall outside defined thresholds.
+* **Data Validation:** Learned how dropdown lists and validation rules help maintain consistent and accurate data entry.
+* **PivotTables and PivotCharts:** Practised summarising sales data by region, product, and quarter to identify business performance patterns.
+* **Slicers and Timelines:** Explored how interactive filters can make dashboards easier to navigate.
+* **Power Query:** Learned how to import, combine, clean, and transform multiple CSV files through a repeatable data preparation workflow.
+* **Power Pivot and DAX:** Reviewed how related datasets and DAX measures can support more advanced calculations and reporting.
+* **What-If Analysis and Solver:** Studied how Goal Seek, Scenario Manager, Data Tables, and Solver can support forecasting and business optimisation.
+* **Data Analysis ToolPak:** Explored its applications in statistical analysis, regression, and histogram generation.
+* **Advanced Visualisation:** Reviewed combo charts, waterfall charts, funnel charts, map charts, and sparklines for presenting analytical insights.
+* **Automation and Integration:** Learned about VBA macros, external data connections, and Power BI integration for improving reporting efficiency.
+
+## 3. Practical Work Completed
+
+During this session, I worked on a sales analysis workbook using Q1 and Q2 sales datasets.
+
+The practical activities included:
+
+1. Importing sales records from multiple CSV files.
+2. Using Power Query to prepare and combine quarterly datasets.
+3. Creating calculated columns for Margin and Margin Percentage.
+4. Developing a PivotTable to summarise revenue and margin by region, product, and quarter.
+5. Creating a KPI dashboard displaying total revenue, total cost of goods sold (COGS), total margin, overall margin percentage, units sold, and total sales records.
+6. Building a regional revenue and margin summary.
+7. Calculating quarterly revenue and growth percentage.
+8. Creating charts to visualise regional and quarterly sales performance.
+9. Formatting financial values using Indian Rupee currency formatting.
+
+## 4. Business Applications
+
+These techniques can be applied to retail sales reporting, financial analysis, inventory management, regional performance monitoring, and automated business reporting.
+
+For example, a retail analyst can combine sales files from different quarters, compare revenue across regions, calculate profitability, and present the results through a dashboard for management review.
+
+## 5. Additional Insights
+
+I learned that Excel remains a useful tool for data analysts because it supports rapid exploration, reporting, and business communication. Power Query reduces repetitive data preparation, while PivotTables and charts simplify summarisation and visual analysis.
+
+For larger datasets and more complex analytical requirements, Excel can be complemented by Python, SQL, and Power BI.
+
+## 6. Conclusion
+
+This session strengthened my understanding of Excel-based data analysis and reporting. By working with quarterly sales data, I gained practical experience in data preparation, profitability calculations, PivotTable analysis, KPI reporting, and dashboard visualisation.
+
+These skills provide a foundation for developing more efficient, accurate, and business-oriented analytical reports.
