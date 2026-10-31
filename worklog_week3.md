@@ -428,3 +428,65 @@ Successfully developed a five-page Indian Stock Market Analytics Dashboard using
 This task improved my understanding of business intelligence, interactive reporting, data visualization, and stakeholder-oriented dashboard development.
 
 **Overall Outcome:** Gained practical experience in transforming historical financial datasets into structured, interactive, and presentation-ready analytical dashboards.
+
+____________________________________________________________________________________________________________
+
+# # WEEK 3 – DAY 4
+## KPI Design
+
+### KPI vs. Metric vs. Measure – Understanding the Differences
+
+As part of today's learning, I explored the differences between measures, metrics, and Key Performance Indicators (KPIs), and how they are connected when analysing business performance.
+
+**1. Measure**
+
+A measure is a basic numerical value collected directly from a data source. It represents raw information that can be used for further analysis.
+
+Example: `sales_qty` – the number of products sold in a transaction.
+
+**2. Metric**
+
+A metric is a calculated value obtained by combining or analysing one or more measures. It helps understand business performance through totals, averages, percentages, and ratios.
+
+Example: Total Sales = SUM(Quantity × Unit Price).
+
+**3. KPI (Key Performance Indicator)**
+
+A KPI is an important metric linked to a specific business goal. It helps organisations evaluate whether they are achieving their objectives. KPIs are generally monitored against predefined targets.
+
+Example: Year-over-Year Sales Growth with a target of achieving more than 15% growth.
+
+### How They Are Connected
+
+The relationship can be understood through the following hierarchy:
+
+* **Measure:** Provides the raw numerical data.
+* **Metric:** Converts raw data into meaningful calculations.
+* **KPI:** Uses important metrics to evaluate progress towards business goals.
+
+Measures usually represent detailed information, metrics provide analytical insights, and KPIs focus on overall business performance.
+
+### Practical Example – Indian Retail Industry
+
+Consider a retail business that wants to monitor its sales performance.
+
+| Level   | Example                                                    |
+| ------- | ---------------------------------------------------------- |
+| Measure | Quantity of products sold (`order_qty`)                    |
+| Metric  | Daily sales revenue calculated using quantity and price    |
+| KPI     | Average Order Value (AOV) with a target of ₹2,500 or above |
+
+For example, SQL can be used to calculate daily sales using SUM(), while average order value can be calculated using AVG().
+
+### Key Learnings
+
+* Understood the difference between measures, metrics, and KPIs.
+* Learned how raw data is transformed into meaningful business insights.
+* Understood the importance of setting targets and benchmarks for KPIs.
+* Learned how to select relevant KPIs based on business objectives.
+* Understood how KPIs help management monitor performance and make better decisions.
+
+### Conclusion
+
+This learning helped me understand that not every metric is a KPI. A KPI is a carefully selected metric that measures progress towards an important business objective. Understanding these differences is essential for designing effective dashboards and presenting meaningful insights to decision-makers.
+
