@@ -269,3 +269,162 @@ For larger datasets and more complex analytical requirements, Excel can be compl
 This session strengthened my understanding of Excel-based data analysis and reporting. By working with quarterly sales data, I gained practical experience in data preparation, profitability calculations, PivotTable analysis, KPI reporting, and dashboard visualisation.
 
 These skills provide a foundation for developing more efficient, accurate, and business-oriented analytical reports.
+
+____________________________________________________________________________________________________________
+
+# WEEK 3 – DAY 4
+
+## Looker Studio – Interactive Dashboard Development
+**Technology:** Google Looker Studio, Google Sheets, CSV
+**Task:** Build an interactive dashboard and understand client-presentation best practices.
+
+### 1. Objective
+
+The objective of this task was to develop an interactive and visually appealing dashboard using Google Looker Studio, connected to structured datasets.
+
+The dashboard aims to transform historical Indian stock market data into meaningful visual insights that help stakeholders understand market performance, stock trends, sector performance, and financial risks.
+
+### 2. Activities Performed
+
+**Task 1: Dashboard Development**
+
+Developed a five-page Indian Stock Market Analytics Dashboard covering:
+
+1. Market Overview
+2. Stock Performance Analysis
+3. Risk & Drawdown Analysis
+4. Trading Patterns & Sector Analysis
+5. Market Trends & Insights
+
+**Task 2: Data Visualization**
+
+Implemented different visualization techniques:
+
+* Scorecards for important market KPIs.
+* Line charts for historical market trends.
+* Bar charts for stock and sector comparisons.
+* Pie charts for proportional analysis.
+* Tables for detailed stock market information.
+
+**Task 3: Interactive Dashboard Features**
+
+Worked with interactive dashboard components, including:
+
+* Stock selection filters.
+* Macro_Cycle filter.
+* Date selection controls.
+* Interactive charts and tables.
+
+**Task 4: Sector Analysis Improvements**
+
+Enhanced the Trading Patterns & Sector Analysis page by working on:
+
+* Sector-wise company distribution.
+* Sector performance comparison.
+* Number of companies by sector.
+* Market cycle-based sector analysis.
+
+### 3. CIA Learning – Client-Presentation Best Practices
+
+Explored the CIA resource titled:
+
+**Looker Studio Dashboard – Client-Presentation Playbook**
+
+The following best practices were identified:
+
+**A. Understand the Audience**
+
+* Identify the intended dashboard users.
+* Understand the business decisions the dashboard should support.
+* Select KPIs according to stakeholder requirements.
+
+**B. KPI Selection**
+
+* Focus on 3–5 important KPIs.
+* Avoid unnecessary metrics.
+* Ensure every KPI provides meaningful business information.
+
+**C. Dashboard Layout**
+
+* Place the dashboard title and date selector at the top.
+* Display important scorecards prominently.
+* Use the central area for important trend visualizations.
+* Position supporting charts and filters logically.
+
+**D. Chart Selection**
+
+* Line charts for time-series analysis.
+* Pie charts for proportional distribution.
+* Bar charts for comparisons and rankings.
+* Tables for detailed information.
+* Scorecards for important numerical indicators.
+
+**E. Branding and Formatting**
+
+* Maintain consistent colours throughout the dashboard.
+* Use readable fonts and appropriate text sizes.
+* Maintain sufficient contrast.
+* Avoid overcrowding the dashboard.
+
+**F. Interactivity**
+
+* Include date range controls.
+* Use dropdown filters where appropriate.
+* Provide useful tooltips.
+* Enable appropriate sharing permissions.
+
+**G. Data Storytelling**
+Organise the dashboard presentation into five stages:
+
+1. Context
+2. Current State
+3. Trend
+4. Root Cause
+5. Actionable Insights
+
+### 4. Application to My Project
+
+Applied the client-presentation principles to the Indian Stock Market Analytics Dashboard.
+
+Key applications include:
+
+* Organising the dashboard into five analytical pages.
+* Using KPI scorecards to summarise market information.
+* Using line charts to explain historical market trends.
+* Using bar charts to compare stock and sector performance.
+* Using a pie chart to represent sector distribution.
+* Adding explanatory insights to communicate analytical findings.
+* Improving the visual hierarchy and consistency of dashboard components.
+
+### 5. Key Learning Outcomes
+
+Through this task, I gained practical knowledge of:
+
+1. Developing interactive dashboards using Google Looker Studio.
+2. Connecting structured datasets to reporting tools.
+3. Selecting appropriate charts for different analytical requirements.
+4. Designing KPI scorecards.
+5. Creating interactive filters and date controls.
+6. Applying dashboard design and branding principles.
+7. Communicating business insights through data visualization.
+8. Preparing dashboards for professional client presentations.
+
+### 6. Challenges and Improvements
+
+Identified the following areas for further improvement:
+
+* Improving chart readability and label formatting.
+* Ensuring date filters work correctly.
+* Avoiding unnecessary data aggregation.
+* Improving sector-level comparisons.
+* Verifying data freshness and refresh settings.
+* Optimising dashboard loading performance.
+* Checking public sharing permissions.
+
+### 7. Conclusion
+
+Successfully developed a five-page Indian Stock Market Analytics Dashboard using Google Looker Studio and explored professional dashboard design practices through the CIA Client-Presentation Playbook.
+
+This task improved my understanding of business intelligence, interactive reporting, data visualization, and stakeholder-oriented dashboard development.
+
+**Overall Outcome:** Gained practical experience in transforming historical financial datasets into structured, interactive, and presentation-ready analytical dashboards.
