@@ -65,3 +65,73 @@ I will focus on strengthening these concepts using Python libraries such as Pand
 
 ____________________________________________________________________________________________________________
 
+# CIA Research Activity – Week 4, Day 2
+
+**Topic:** Probability
+**Activity:** Research – Central Limit Theorem (CLT)
+**Research Query:** "Explain the Central Limit Theorem with a business forecasting example."
+
+### 1. Objective
+
+To understand the Central Limit Theorem, its mathematical principles and its applications in business forecasting and data analytics.
+
+### 2. Key Learnings
+
+Through CIA research, I learned that the Central Limit Theorem states that the distribution of sample means approaches a normal distribution as the sample size increases, provided the population has a finite mean and variance and appropriate sampling conditions are satisfied.
+
+Important concepts:
+
+* The mean of the sampling distribution equals the population mean.
+* The standard error is calculated as σ/√n for independent observations.
+* Larger sample sizes generally produce more reliable estimates.
+* Even when the original population is skewed, the sampling distribution of the mean can become approximately normal.
+
+### 3. Business Applications
+
+I explored the following applications:
+
+1. **Demand Forecasting:** Estimating average daily or weekly product sales.
+2. **Budget Analysis:** Understanding variations in monthly business expenses.
+3. **A/B Testing:** Comparing average conversion rates between two groups.
+4. **Inventory Management:** Estimating product demand and planning safety stock.
+5. **Business Decision-Making:** Using confidence intervals to understand uncertainty in average business metrics.
+
+### 4. Practical Business Example
+
+I studied an Indian FMCG retail business scenario involving mango drink sales across 10 stores.
+
+The process involved:
+
+1. Collecting 90 days of historical sales data.
+2. Randomly selecting samples of 30 observations.
+3. Calculating the mean of each sample.
+4. Repeating the sampling process 1,000 times.
+5. Plotting the sampling distribution.
+6. Estimating the average sales and its uncertainty using a confidence interval.
+
+This demonstrated how CLT can help businesses estimate average sales even when the original sales distribution is positively skewed.
+
+### 5. Important Formulae
+
+**Standard Error:**
+
+SE = σ / √n
+
+**95% Confidence Interval (large-sample normal approximation):**
+
+CI = Sample Mean ± 1.96 × Standard Error
+
+### 6. Practical Understanding
+
+I understood that the Central Limit Theorem is important because it provides the foundation for confidence intervals, hypothesis testing and statistical forecasting.
+
+It allows data analysts to make population-level conclusions using sample data.
+
+### 7. Conclusion
+
+This CIA research activity improved my understanding of the Central Limit Theorem and its importance in real-world business analytics.
+
+I learned how sampling distributions, standard errors and confidence intervals help businesses make informed decisions about sales forecasting, budgeting and inventory planning.
+
+**Activity Status: Completed**
+____________________________________________________________________________________________________________
