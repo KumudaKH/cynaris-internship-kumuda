@@ -135,3 +135,40 @@ I learned how sampling distributions, standard errors and confidence intervals h
 
 **Activity Status: Completed**
 ____________________________________________________________________________________________________________
+
+# CIA Activity: Correlation vs Causation
+
+**Week:** 4
+**Day:** 3
+**Topic:** Regression Analysis
+
+### Objective
+
+To understand the difference between correlation and causation and learn how these concepts are applied in business analytics.
+
+### Key Learnings
+
+1. Correlation measures the statistical relationship between two variables but does not establish cause and effect.
+2. Causation means that a change in one variable directly influences another variable.
+3. Pearson and Spearman coefficients help measure correlation.
+4. Confounding variables can create misleading relationships between variables.
+5. A/B testing, Randomized Controlled Trials and Difference-in-Differences can help establish causal relationships.
+
+### Business Example
+
+An Indian retail company observes that promotional SMS campaigns and product sales increase simultaneously.
+
+However, this does not necessarily mean SMS campaigns caused higher sales. Festival seasons may increase both marketing activities and customer purchasing behaviour.
+
+### Practical Applications
+
+* Use correlation analysis to identify relationships.
+* Identify possible confounding variables.
+* Avoid making business decisions based only on correlation.
+* Use controlled experiments to validate causal relationships.
+
+### Conclusion
+
+I learned that correlation does not imply causation. As a data analyst, it is important to distinguish statistical relationships from actual cause-and-effect relationships before making business recommendations.
+____________________________________________________________________________________________________________
+
