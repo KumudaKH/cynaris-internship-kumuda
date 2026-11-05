@@ -172,3 +172,75 @@ However, this does not necessarily mean SMS campaigns caused higher sales. Festi
 I learned that correlation does not imply causation. As a data analyst, it is important to distinguish statistical relationships from actual cause-and-effect relationships before making business recommendations.
 ____________________________________________________________________________________________________________
 
+## Understanding P-Values and Statistical Significance
+
+**Week:** 4
+**Day:** 4
+**Topic:** Hypothesis Testing
+
+### 1. What is a P-Value?
+
+A p-value measures how likely it is to observe results as extreme as the obtained results, assuming the null hypothesis (H0) is true.
+
+- A small p-value indicates strong evidence against the null hypothesis.
+- A large p-value indicates insufficient evidence to reject the null hypothesis.
+
+### 2. What is Statistical Significance?
+
+Statistical significance determines whether the observed result provides sufficient evidence against the null hypothesis.
+
+The commonly used significance level is 0.05 (5%).
+
+### 3. Business Example: Sales Promotion
+
+A company launches a Buy-1-Get-1-Free promotion to increase snack sales.
+
+Before the promotion, average daily sales were 1,000 units.
+
+During the promotion, average daily sales increased to 1,150 units.
+
+We want to determine whether the increase is statistically significant.
+
+**Case 1: P-value = 0.30**
+
+- The result is not statistically significant.
+- We fail to reject the null hypothesis.
+- There is insufficient evidence that the promotion increased sales.
+
+**Case 2: P-value = 0.02**
+
+- The result is statistically significant at the 5% level.
+- We reject the null hypothesis.
+- There is evidence that the promotion affected sales.
+
+### 4. Decision Rules
+
+| P-Value | Decision |
+|---|---|
+| p < 0.05 | Reject the null hypothesis |
+| p ≥ 0.05 | Fail to reject the null hypothesis |
+
+### 5. Importance in Business Analytics
+
+- Helps businesses make data-driven decisions.
+- Evaluates the effectiveness of marketing campaigns.
+- Helps compare product performance.
+- Supports customer behaviour analysis.
+- Reduces the risk of making decisions based on random variations.
+
+### 6. Common Mistakes
+
+1. A p-value of 0.05 does not mean there is a 95% probability that the alternative hypothesis is true.
+2. Statistical significance does not necessarily mean business importance.
+3. A high p-value does not prove that there is no effect.
+4. Correlation and statistical significance do not automatically establish causation.
+
+### 7. Key Takeaways
+
+- P-value measures evidence against the null hypothesis.
+- Statistical significance is generally determined using a significance level of 0.05.
+- A smaller p-value indicates stronger evidence against H0.
+- Business decisions should consider statistical significance, effect size and practical importance.
+
+____________________________________________________________________________________________________________
+
