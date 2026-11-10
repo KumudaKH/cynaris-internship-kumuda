@@ -1,0 +1,4 @@
+Question,Manual_Pandas_Result,Manual_Execution_Time_Seconds
+Average Salary,695387.2112428634,0.0012519359588623047
+Unique Companies,11260,0.005505084991455078
+Top 5 Common Job Titles,"{'Software Development Engineer': 2351, 'Android Developer': 2029, 'Software Development Engineer (SDE)': 1614, 'Front End Developer': 1412, 'Test Engineer': 1314}",0.002018451690673828

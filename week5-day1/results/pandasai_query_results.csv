@@ -1,0 +1,41 @@
+query_number,question,result,status
+1,Count the total number of records.,22770,SUCCESS
+2,Calculate the average rating.,3.918212560386559,SUCCESS
+3,Find the top 10 companies by average salary. Return company_name and average_salary.,"             company_name  average_salary
+0       Thapar University      90000000.0
+1         FFF Enterprises       9800000.0
+2            Digital Raju       9800000.0
+3  Gaana Lyrics Point.com       9700000.0
+4    GGH Heavy Industries       9600000.0
+5                 Tenneco       7700000.0
+6   Adwitech Info Systems       7300000.0
+7       Techware Solution       6900000.0
+8                  KH TEC       6600000.0
+9         Nikhil Comforts       6400000.0",SUCCESS
+4,Calculate the average salary.,695387.2112428634,SUCCESS
+5,Find the location with the highest average salary.,Mumbai,SUCCESS
+6,Count the number of unique companies.,11260,SUCCESS
+7,Find the top 5 most frequently occurring job titles.,"                             job_title  count
+0        Software Development Engineer   2351
+1                    Android Developer   2029
+2  Software Development Engineer (SDE)   1614
+3                  Front End Developer   1412
+4                        Test Engineer   1314",SUCCESS
+8,Calculate average salary grouped by employment_status.,"  employment_status  average_salary
+0        Contractor   627362.364964
+1           Trainee   324303.030303
+2            Intern   357054.176638
+3         Full Time   733332.377035",SUCCESS
+9,Find the job_role with the highest average salary.,"  job_roles     avg_salary
+0  Database  958584.046243",SUCCESS
+10,Find the top 10 highest-paying job_titles based on average salary.,"                                           job_title    avg_salary
+0      Lead UI Designer, Magento Front-end Developer  9.900000e+06
+1                  Non Software Development Engineer  9.800000e+06
+2                             Mobile App Development  5.000000e+06
+3                                 Front-end - Intern  4.900000e+06
+4                         Principal Mobile Architect  4.800000e+06
+5                                Front-End Architect  4.700000e+06
+6                Staff Software Development Engineer  4.466667e+06
+7    Senior Manager Software Development Engineering  4.233333e+06
+8                 SMTS Software Development Engineer  4.200000e+06
+9  Database Administrator (Database Administrator...  4.100000e+06",SUCCESS

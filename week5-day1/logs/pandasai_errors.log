@@ -1,0 +1,252 @@
+2026-11-10 20:12:54,019 - ERROR - Dataset loading failed
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\OneDrive\Desktop\cynaris-internship-kumuda\week5-day1\pandasai_analysis.py", line 42, in <module>
+    df = pai.DataFrame(pd.read_csv(DATASET_PATH))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/Salary_Dataset_with_Extra_Features.csv'
+2026-11-10 20:13:45,858 - ERROR - Dataset loading failed
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\OneDrive\Desktop\cynaris-internship-kumuda\week5-day1\pandasai_analysis.py", line 42, in <module>
+    df = pai.DataFrame(pd.read_csv(DATASET_PATH))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/Salary_Dataset_with_Extra_Features.csv'
+2026-11-10 20:23:19,795 - ERROR - Query 3 failed: Which are the top 10 companies based on average salary?
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 39, in generate_code
+    cleaned_code = self.validate_and_clean_code(code)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 63, in validate_and_clean_code
+    return self._code_cleaner.clean_code(code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\code_cleaning.py", line 164, in clean_code
+    node = self._validate_and_make_table_name_case_sensitive(node)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\code_cleaning.py", line 86, in _validate_and_make_table_name_case_sensitive
+    sql_query = self._clean_sql_query(node.value.value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\code_cleaning.py", line 68, in _clean_sql_query
+    table_names = SQLParser.extract_table_names(sql_query, dialect)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\query_builders\sql_parser.py", line 78, in extract_table_names
+    parsed = sqlglot.parse(sql_query, dialect=dialect)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\__init__.py", line 102, in parse
+    return Dialect.get_or_raise(read or dialect).parse(sql, **opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\dialects\dialect.py", line 931, in parse
+    return self.parser(**opts).parse(self.tokenize(sql), sql)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1432, in parse
+    return self._parse(
+           ^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1504, in _parse
+    self.raise_error("Invalid expression / Unexpected token")
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1545, in raise_error
+    raise error
+sqlglot.errors.ParseError: Invalid expression / Unexpected token. Line 4, Col: 22.
+   AVG(Salary) AS average_salary
+    FROM table_3c016edd33f10d5597053c6331a052fa
+    GROUP BY Company [4mName[0m
+    ORDER BY average_salary DESC
+    LIMIT 10
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\OneDrive\Desktop\cynaris-internship-kumuda\week5-day1\pandasai_analysis.py", line 93, in <module>
+    response = df.chat(query)
+               ^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\dataframe\base.py", line 118, in chat
+    return self._agent.chat(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 103, in chat
+    return self._process_query(query, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 284, in _process_query
+    code = self.generate_code_with_retries(str(query))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 181, in generate_code_with_retries
+    return self._regenerate_code_after_error(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 308, in _regenerate_code_after_error
+    return self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 39, in generate_code
+    cleaned_code = self.validate_and_clean_code(code)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 63, in validate_and_clean_code
+    return self._code_cleaner.clean_code(code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\code_cleaning.py", line 164, in clean_code
+    node = self._validate_and_make_table_name_case_sensitive(node)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\code_cleaning.py", line 86, in _validate_and_make_table_name_case_sensitive
+    sql_query = self._clean_sql_query(node.value.value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\code_cleaning.py", line 68, in _clean_sql_query
+    table_names = SQLParser.extract_table_names(sql_query, dialect)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\query_builders\sql_parser.py", line 78, in extract_table_names
+    parsed = sqlglot.parse(sql_query, dialect=dialect)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\__init__.py", line 102, in parse
+    return Dialect.get_or_raise(read or dialect).parse(sql, **opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\dialects\dialect.py", line 931, in parse
+    return self.parser(**opts).parse(self.tokenize(sql), sql)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1432, in parse
+    return self._parse(
+           ^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1504, in _parse
+    self.raise_error("Invalid expression / Unexpected token")
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1545, in raise_error
+    raise error
+sqlglot.errors.ParseError: Invalid expression / Unexpected token. Line 4, Col: 22.
+   AVG(Salary) AS average_salary
+    FROM table_3c016edd33f10d5597053c6331a052fa
+    GROUP BY Company [4mName[0m
+    ORDER BY average_salary DESC
+    LIMIT 10
+
+2026-11-10 20:26:23,423 - ERROR - Query 4 failed: What is the average salary?
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\OneDrive\Desktop\cynaris-internship-kumuda\week5-day1\pandasai_analysis.py", line 93, in <module>
+    response = df.chat(query)
+               ^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\dataframe\base.py", line 118, in chat
+    return self._agent.chat(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 103, in chat
+    return self._process_query(query, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 287, in _process_query
+    result = self.execute_with_retries(code)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 205, in execute_with_retries
+    return self._response_parser.parse(result, code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\response\parser.py", line 17, in parse
+    self._validate_response(result)
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\response\parser.py", line 38, in _validate_response
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Result must be in the format of dictionary of type and value like `result = {"type": ..., "value": ... }`
+2026-11-10 20:37:25,287 - ERROR - Query 9 failed: Which job role has the highest average salary?
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_execution\code_executor.py", line 29, in execute
+    exec(code, self._environment)
+  File "<string>", line 26, in <module>
+  File "<string>", line 10, in get_highest_average_salary_job_role
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 164, in _execute_sql_query
+    final_query = SQLParser.replace_table_and_column_names(query, table_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\query_builders\sql_parser.py", line 50, in replace_table_and_column_names
+    parsed = parse_one(query)
+             ^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\__init__.py", line 139, in parse_one
+    result = dialect.parse(sql, **opts)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\dialects\dialect.py", line 931, in parse
+    return self.parser(**opts).parse(self.tokenize(sql), sql)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1432, in parse
+    return self._parse(
+           ^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1504, in _parse
+    self.raise_error("Invalid expression / Unexpected token")
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\sqlglot\parser.py", line 1545, in raise_error
+    raise error
+sqlglot.errors.ParseError: Invalid expression / Unexpected token. Line 4, Col: 19.
+  (Salary) as Average_Salary
+        FROM table_3c016edd33f10d5597053c6331a052fa
+        GROUP BY Job [4mRoles[0m
+    
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 204, in execute_with_retries
+    result = self.execute_code(code)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 135, in execute_code
+    return code_executor.execute_and_return_result(code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_execution\code_executor.py", line 38, in execute_and_return_result
+    self.execute(code)
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_execution\code_executor.py", line 31, in execute
+    raise CodeExecutionError("Code execution failed") from e
+pandasai.exceptions.CodeExecutionError: Code execution failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KUMUDHA\OneDrive\Desktop\cynaris-internship-kumuda\week5-day1\pandasai_analysis.py", line 93, in <module>
+    response = df.chat(query)
+               ^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\dataframe\base.py", line 118, in chat
+    return self._agent.chat(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 103, in chat
+    return self._process_query(query, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 287, in _process_query
+    result = self.execute_with_retries(code)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 214, in execute_with_retries
+    code = self._regenerate_code_after_error(code, e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\agent\base.py", line 308, in _regenerate_code_after_error
+    return self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\llm\base.py", line 174, in generate_code
+    return self._extract_code(response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KUMUDHA\AppData\Local\Programs\Python\Python311\Lib\site-packages\pandasai\llm\base.py", line 118, in _extract_code
+    raise NoCodeFoundError("No code found in the response")
+pandasai.exceptions.NoCodeFoundError: No code found in the response
