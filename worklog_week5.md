@@ -133,3 +133,105 @@ Observed differences in execution times across the three libraries. DuckDB's ini
 
 Completed code review and technical evaluation using CIA Full Stack/Role Mentor Mode.
 ________________________________________________________________________________________________________
+
+# Week 5 – Data Analytics Internship Worklog
+
+## Week 5 Day 1 – PandasAI: AI-Powered Data Analysis
+**Status:** Completed
+
+**Topics Covered:** PandasAI, AI-powered data analysis, Ollama, Qwen3, LLM integration
+
+**Work Done:**
+- Explored AI-powered data analysis using PandasAI.
+- Loaded and analyzed the salary dataset.
+- Integrated Ollama with a local language model.
+- Performed natural-language-based data analysis.
+- Compared AI-generated analytical results.
+
+**Tools / Technologies:** Python, Pandas, PandasAI, Ollama, Qwen3, Jupyter Notebook
+
+---
+
+## Week 5 Day 2 – AutoViz & SweetViz: Automated EDA Reports
+**Status:** Completed
+
+**Topics Covered:** Automated Exploratory Data Analysis, AutoViz, SweetViz, data visualization
+
+**Work Done:**
+- Explored automated EDA using AutoViz and SweetViz.
+- Generated automated exploratory data analysis reports.
+- Visualized dataset distributions and relationships.
+- Saved generated HTML reports and visualization evidence.
+
+**Tools / Technologies:** Python, Pandas, AutoViz, SweetViz, Matplotlib, Jupyter Notebook
+
+---
+
+## Week 5 Day 3 – DuckDB: Analytical SQL Queries
+**Status:** Completed
+
+**Topics Covered:** DuckDB, analytical SQL, data querying, aggregation
+
+**Work Done:**
+- Explored DuckDB for analytical data processing.
+- Executed SQL queries on structured datasets.
+- Practiced aggregations and analytical operations.
+- Used SQL-based analysis to extract useful insights.
+
+**Tools / Technologies:** Python, DuckDB, SQL, Pandas, Jupyter Notebook
+
+---
+
+## Week 5 Day 4 – Polars: High-Performance DataFrame Operations
+**Status:** Completed
+
+**Topics Covered:** Polars, DataFrame operations, high-performance data processing
+
+**Work Done:**
+- Explored Polars for efficient DataFrame processing.
+- Practiced DataFrame creation and data manipulation.
+- Performed filtering, selection, grouping and aggregation.
+- Compared Polars operations with Pandas.
+
+**Tools / Technologies:** Python, Polars, Pandas, Jupyter Notebook
+
+---
+
+## Week 5 Day 5 – AI-Powered EDA on Indian Startup Funding Dataset
+**Status:** Completed
+
+**Topics Covered:** Data Cleaning, Automated EDA, DuckDB, Ollama, AI-generated business insights
+
+**Work Done:**
+- Worked with the Indian Startup Funding Dataset containing 3,044 records and 10 columns.
+- Cleaned the dataset by handling missing values, duplicate records and inconsistent column names.
+- Corrected text encoding issues and converted funding amounts into numeric values.
+- Generated automated EDA reports using SweetViz.
+- Created visualizations using AutoViz.
+- Used DuckDB SQL queries to analyze startup funding trends, industries, cities and investment types.
+- Integrated Ollama with the Llama 3.2 model to generate AI-powered business insights.
+- Saved the generated reports and analysis outputs.
+- Organized the project into separate data, evidence and reports folders.
+
+**Tools / Technologies:** Python, Pandas, NumPy, DuckDB, Ollama, Llama 3.2, SweetViz, AutoViz, Matplotlib, Jupyter Notebook
+
+**Deliverables:**
+- Data cleaning script
+- Automated EDA script
+- AI analysis script
+- Cleaned dataset
+- SweetViz HTML report
+- AutoViz visualization evidence
+- AI-generated business insights report
+- Jupyter Notebook
+- Project README
+
+---
+
+## Week 5 Overall Summary
+
+Completed hands-on exercises involving AI-powered data analysis, automated EDA, DuckDB SQL analytics and high-performance DataFrame processing using Polars. Applied these concepts in a practical Indian Startup Funding Analysis project and generated automated reports and AI-powered business insights.
+
+**CIA Interactions:**
+
+Completed code review and technical evaluation using CIA Full Stack/Role Mentor Mode.
