@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme-managed="false">
+  <head>
+    <meta charset="utf-8">
+    <title>Panel</title>
+<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.holoviz.org/panel/1.10.0/dist/images/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.holoviz.org/panel/1.10.0/dist/images/favicon.ico">    <style>
+      html, body {
+	display: flow-root;
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        flex-direction: column;
+        gap: 16px;
+      }
+      #loader.error {
+        background: none;
+      }
+      #loader .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        animation: pn-loader-spin 1s linear infinite;
+      }
+      #loader-msg {
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+      }
+      #loader-msg:empty, #loader.error #loader-msg {
+        display: none;
+      }
+      #loader-error {
+        display: none;
+        color: #d32f2f;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+        padding: 12px 20px;
+        background: rgba(211, 47, 47, 0.08);
+        border: 1px solid rgba(211, 47, 47, 0.3);
+        border-radius: 8px;
+      }
+      @keyframes pn-loader-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+<script type="esms-options">{"shimMode": true}</script>
+
+<script type="text/javascript" src="https://cdn.holoviz.org/panel/1.10.0/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.holoviz.org/panel/1.10.0/dist/panel.min.js"></script>
+
+<script type="text/javascript">
+  // Tells the panel.js resource registry which component libraries the tags
+  // above have already satisfied, so nothing is fetched a second time. The
+  // queue covers the case where panel.js itself has not executed yet.
+  (function() {
+    const declared = {"libs": [{"name": "reactiveesm:extra", "js": ["https://cdn.holoviz.org/panel/1.10.0/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"]}]};
+    if (window.__panel_resources__ != null) {
+      window.__panel_resources__.declare(declared);
+    } else {
+      (window.__panel_resources_declared__ = window.__panel_resources_declared__ || []).push(declared);
+    }
+  })();
+</script><script type="text/javascript">
+  Bokeh.set_log_level("info");
+</script>  </head>
+  <body>
+    <div id="loader" style="display: none;">
+      <div class="spinner"></div>
+      <div id="loader-msg"></div>
+      <div id="loader-error"></div>
+    </div>
+    <div id="e30d71b5-a3af-49f6-bf29-14cfb99d6e8b" data-root-id="a6ef2ba1-de9b-418b-b4f9-a14cf871b9d1" style="display: contents;"></div>
+  <div id="ad9eda32-fffe-4b1f-abdc-f87e0fd233ae" data-root-id="e806e088-59b1-49b8-a483-4fd019342bce" style="display: contents;"></div>
+  <script>
+    (function() {
+      // Records failed connections so the loader can report them instead
+      // of spinning until it times out.
+      const NativeWebSocket = window.WebSocket;
+      function TrackedWebSocket(...args) {
+        const ws = new NativeWebSocket(...args);
+        ws.addEventListener('error', () => { window._panelConnectionError = true; });
+        ws.addEventListener('close', (e) => { if (e.code !== 1000) { window._panelConnectionError = true; } });
+        return ws;
+      }
+      TrackedWebSocket.prototype = NativeWebSocket.prototype;
+      for (const state of ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED']) {
+        Object.defineProperty(TrackedWebSocket, state, {value: NativeWebSocket[state]});
+      }
+      window.WebSocket = TrackedWebSocket;
+    })();
+  </script>
+  
+    <script type="application/json" id="dd55a2c4-1bc8-4c19-85d9-740f53955f56">
+      {"0c9e91bb-c66e-49af-8e44-e2c606646475":{"version":"3.10.2","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"1698ff52-81ac-4b29-b803-3a6885f648be","attributes":{"notifications":{"type":"object","name":"Notifications","id":"cee7d581-35f5-485c-bbff-86443e65cc17"}}},"roots":[{"type":"object","name":"panel.models.layout.Column","id":"a6ef2ba1-de9b-418b-b4f9-a14cf871b9d1","attributes":{"name":"Column01375","tags":["embedded"],"stylesheets":["\n:host(.pn-loading):before, .pn-loading:before {\n  background-color: #c3c3c3;\n  width: calc(min(40px, 300px));\n  height: calc(min(40px, 300px));\n  mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n  -webkit-mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n}",{"type":"object","name":"ImportedStyleSheet","id":"f93b2539-2418-4a3e-9c07-50e508e7b168","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/loading.css"}},{"type":"object","name":"ImportedStyleSheet","id":"92cc38de-f2d3-493a-b30b-21aaa298b5a9","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/listpanel.css"}},{"type":"object","name":"ImportedStyleSheet","id":"018bd2bd-5a21-42f3-8355-08c2903f3c5d","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/bundled/theme/default.css"}},{"type":"object","name":"ImportedStyleSheet","id":"22777230-bad0-44f6-bbd9-3e15d2677a78","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/bundled/theme/native.css"}}],"margin":0,"align":"start","children":[{"type":"object","name":"Row","id":"a6ab77bc-b138-4080-894b-0bf9924a6766","attributes":{"name":"Row01374","stylesheets":["\n:host(.pn-loading):before, .pn-loading:before {\n  background-color: #c3c3c3;\n  width: calc(min(40px, 300px));\n  height: calc(min(40px, 300px));\n  mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n  -webkit-mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n}",{"id":"f93b2539-2418-4a3e-9c07-50e508e7b168"},{"id":"92cc38de-f2d3-493a-b30b-21aaa298b5a9"},{"id":"018bd2bd-5a21-42f3-8355-08c2903f3c5d"},{"id":"22777230-bad0-44f6-bbd9-3e15d2677a78"}],"margin":0,"align":"start","children":[{"type":"object","name":"Figure","id":"b357eb2c-3845-4549-96d1-21d4d88c78c5","attributes":{"width":700,"height":300,"margin":[5,10],"sizing_mode":"fixed","align":"start","x_range":{"type":"object","name":"Range1d","id":"623333c5-e360-4e90-b8c1-b8d350a0b9a6","attributes":{"name":"index","tags":[[["index",null]],[]],"start":-0.38571428571428573,"end":9.385714285714286,"reset_start":-0.38571428571428573,"reset_end":9.385714285714286}},"y_range":{"type":"object","name":"Range1d","id":"854e2f46-c14a-48c6-b5e6-022069c5a7f2","attributes":{"name":"Salary","tags":[[["Salary",null]],{"type":"map","entries":[["invert_yaxis",false],["autorange",false]]}],"end":1001940.6571923059,"reset_start":0,"reset_end":1001940.6571923059}},"x_scale":{"type":"object","name":"LinearScale","id":"c9907f54-7b7e-424c-8f76-7ad45cf7695b"},"y_scale":{"type":"object","name":"LinearScale","id":"8fedb0a6-9e37-4be5-adae-3ec26241ce5d"},"title":{"type":"object","name":"Title","id":"bacdec95-80cd-4327-9158-47396af01905","attributes":{"text":"Mean Target = Salary by each Categorical Variable","text_color":"black","text_font_size":"12pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"53ad3c44-0b44-45fa-a1ec-d2cc4da2ca98","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"3aac6c03-e84b-49a7-b8ce-627f0bb1211e","attributes":{"selected":{"type":"object","name":"Selection","id":"825155ac-c8f8-45ea-992c-c65f448a4004","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"d5ad9121-bcf8-4257-b10c-8b5491003a9f"},"data":{"type":"map","entries":[["index",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAA/wXBhwEAIAgAIKxc/z8cQODg4iFRaAwWHwJ5740oAAAA"},"shape":[10],"dtype":"int32","order":"little"}],["Salary",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAA/wFQAK//B/2reuFwJkFB47FS39YhQd6gk1B2uSRBDTzdmh8zI0GhvYT20uQgQZasZCUbsiVBHD3B0ROuJEEA5aq8OFUtQRjIpHiJGiRBSWpPn1gSJUFKX/jYUAAAAA=="},"shape":[10],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"db3f9cc0-bf60-4c33-b538-2439b44cace7","attributes":{"filter":{"type":"object","name":"AllIndices","id":"b90bf4da-4a4a-4471-bdcb-354b1b49c711"}}},"glyph":{"type":"object","name":"VBar","id":"7d650dc5-1108-4fa2-bc68-99578e02699e","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"index"},"width":{"type":"value","value":0.8},"top":{"type":"field","field":"Salary"},"fill_color":{"type":"value","value":"#0000ff"},"hatch_color":{"type":"value","value":"#0000ff"}}},"selection_glyph":{"type":"object","name":"VBar","id":"c54c1ea8-6ddf-411b-91bc-f1de79ea3a34","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"index"},"width":{"type":"value","value":0.8},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"Salary"},"line_color":{"type":"value","value":"black"},"line_alpha":{"type":"value","value":1.0},"line_width":{"type":"value","value":1},"line_join":{"type":"value","value":"bevel"},"line_cap":{"type":"value","value":"butt"},"line_dash":{"type":"value","value":[]},"line_dash_offset":{"type":"value","value":0},"fill_color":{"type":"value","value":"#0000ff"},"fill_alpha":{"type":"value","value":1.0},"hatch_color":{"type":"value","value":"#0000ff"},"hatch_alpha":{"type":"value","value":1.0},"hatch_scale":{"type":"value","value":12.0},"hatch_pattern":{"type":"value","value":null},"hatch_weight":{"type":"value","value":1.0}}},"nonselection_glyph":{"type":"object","name":"VBar","id":"50563c06-775f-4549-8d6f-99f89a1f3a3e","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"index"},"width":{"type":"value","value":0.8},"top":{"type":"field","field":"Salary"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#0000ff"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"#0000ff"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"VBar","id":"62def80d-b66e-4190-82ce-9f716473669e","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"index"},"width":{"type":"value","value":0.8},"top":{"type":"field","field":"Salary"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#0000ff"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"#0000ff"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"022f7067-86e1-47b6-81c3-da06a4619a76","attributes":{"tools":[{"type":"object","name":"WheelZoomTool","id":"7303b301-7a0b-4e0a-9bf7-7c2cc79f79fa","attributes":{"tags":["hv_created"],"renderers":"auto","zoom_together":"none"}},{"type":"object","name":"HoverTool","id":"cdaf0884-2066-4869-aa11-5920b4e5d270","attributes":{"tags":["hv_created"],"renderers":[{"id":"53ad3c44-0b44-45fa-a1ec-d2cc4da2ca98"}],"tooltips":[["index","@{index}"],["Salary","@{Salary}"]],"sort_by":null}},{"type":"object","name":"SaveTool","id":"aa76103b-d26c-426c-a776-964026ca85a9"},{"type":"object","name":"PanTool","id":"bfc58212-c86e-4011-acfe-601f38b44e69"},{"type":"object","name":"BoxZoomTool","id":"1146c2ce-da76-453e-981c-7140bb6a8b6b","attributes":{"dimensions":"both","overlay":{"type":"object","name":"BoxAnnotation","id":"4e0ad32f-2be2-4af2-bf5b-54e2a8711dc0","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"4d28d751-4c15-4534-8da9-188e6789222c","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"dffca13f-1d91-4648-a3f2-b223c5c8876a","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"ead3870b-3afa-46d4-9af6-7d475e277fcc"},{"type":"object","name":"TapTool","id":"4588e1af-7347-4d55-93f7-2bf376d891d9","attributes":{"renderers":"auto"}}],"active_drag":{"id":"bfc58212-c86e-4011-acfe-601f38b44e69"},"active_scroll":{"id":"7303b301-7a0b-4e0a-9bf7-7c2cc79f79fa"}}},"left":[{"type":"object","name":"LinearAxis","id":"99396011-65d8-49cb-86d9-f40d7cb3e95f","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"9fe7e8e9-81c7-4373-a90d-ab79db493823","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"1040d6da-d2e5-4fc2-a8ce-de168024b2f8"},"axis_label":"Salary","major_label_policy":{"type":"object","name":"AllLabels","id":"6eb14277-2aa2-4ea1-ae6a-64f01fec9aac"}}}],"below":[{"type":"object","name":"LinearAxis","id":"bf99a9bf-d4f7-4f82-b28c-eac001d06512","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"41ecb19a-1bcc-4696-b82c-bf41d56308a7","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"fc194b78-bee2-4e7f-9a22-e001cb39307c"},"axis_label":"","major_label_orientation":1.2217304763960306,"major_label_policy":{"type":"object","name":"AllLabels","id":"0b8bcb18-ff51-4576-b0fe-71dae804707e"}}}],"center":[{"type":"object","name":"Grid","id":"60549233-e62b-4456-b997-969563c2b975","attributes":{"axis":{"id":"bf99a9bf-d4f7-4f82-b28c-eac001d06512"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"95c4b1f1-bd67-475d-97af-a55abf4aabe1","attributes":{"dimension":1,"axis":{"id":"99396011-65d8-49cb-86d9-f40d7cb3e95f"},"grid_line_color":null}}],"min_border_top":10,"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"output_backend":"webgl","hold_render":false}},{"type":"object","name":"panel.models.layout.Column","id":"a71327be-b91e-4fb3-92d3-a79e515c49b3","attributes":{"name":"WidgetBox01369","css_classes":["panel-widget-box"],"stylesheets":["\n:host(.pn-loading):before, .pn-loading:before {\n  background-color: #c3c3c3;\n  width: calc(min(40px, 300px));\n  height: calc(min(40px, 300px));\n  mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n  -webkit-mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n}",{"id":"f93b2539-2418-4a3e-9c07-50e508e7b168"},{"type":"object","name":"ImportedStyleSheet","id":"ffdae194-112d-44e6-9332-d248dc7d80ea","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/widgetbox.css"}},{"id":"92cc38de-f2d3-493a-b30b-21aaa298b5a9"},{"id":"018bd2bd-5a21-42f3-8355-08c2903f3c5d"},{"id":"22777230-bad0-44f6-bbd9-3e15d2677a78"}],"margin":0,"align":["end","start"],"children":[{"type":"object","name":"panel.models.widgets.CustomSelect","id":"5251d144-8ce7-4c81-bd30-00f5d4cd0b1a","attributes":{"js_property_callbacks":{"type":"map","entries":[["change:value",[{"type":"object","name":"CustomJS","id":"2b155acd-c4be-495a-9e9e-8e50ce449f8c","attributes":{"code":"\nvar state = null\nfor (var root of cb_obj.document.roots()) {\n  if (root.id == 'e806e088-59b1-49b8-a483-4fd019342bce') {\n    state = root;\n    break;\n  }\n}\nif (!state) { return; }\nstate.set_state(cb_obj, cb_obj.value)\n"}}]]]},"stylesheets":["\n:host(.pn-loading):before, .pn-loading:before {\n  background-color: #c3c3c3;\n  width: calc(min(40px, 300px));\n  height: calc(min(40px, 300px));\n  mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n  -webkit-mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n}",{"id":"f93b2539-2418-4a3e-9c07-50e508e7b168"},{"type":"object","name":"ImportedStyleSheet","id":"f1a33347-028b-4ccd-b70b-22f315c57a9b","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/select.css"}},{"id":"018bd2bd-5a21-42f3-8355-08c2903f3c5d"},{"id":"22777230-bad0-44f6-bbd9-3e15d2677a78"}],"width":300,"min_width":300,"margin":[5,10],"align":"start","title":"Select_Cat_Variable","options":["Location","Employment Status","Job Roles","Salaries Reported"],"value":"Location"}}]}}]}}]}},{"type":"object","name":"panel.models.state.State","id":"e806e088-59b1-49b8-a483-4fd019342bce","attributes":{"state":{"type":"map","entries":[["Salaries Reported",{"type":"map","entries":[["header","{\"msgid\": \"2fe72fe5-5dfa-4b9e-92ac-2420c9d46a6f\", \"msgtype\": \"PATCH-DOC\"}"],["metadata","{\"use_buffers\": false}"],["content","{\"events\":[{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"b357eb2c-3845-4549-96d1-21d4d88c78c5\"},\"attr\":\"hold_render\",\"new\":false},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"start\",\"new\":-3.4714285714285715},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_start\",\"new\":-3.4714285714285715},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"end\",\"new\":84.47142857142858},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_end\",\"new\":84.47142857142858},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"end\",\"new\":6260000.0},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"reset_end\",\"new\":6260000.0},{\"kind\":\"ColumnDataChanged\",\"model\":{\"id\":\"3aac6c03-e84b-49a7-b8ce-627f0bb1211e\"},\"attr\":\"data\",\"data\":{\"type\":\"map\",\"entries\":[[\"index\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/wXBB0IBAAAAwAtJyCqhkpHRUhqySokoSfz/M+5gBwEEEcIuwthDBPuIIoY4DpBAEimkkcEhjpDFMXLIo4ATnOIMRZyjhDIqqOICNdTRQBOXuMI1bnCLFu5wjzYe8IgnPKODF3TRQx8DDPGKN4zwjg+M8YkJpvjCDHN84wcL/GKJP6zwjzU22ALsS3+aSAEAAA==\"},\"shape\":[82],\"dtype\":\"int32\",\"order\":\"little\"}],[\"Salary\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/zNZsbbfNFrVUb5ywtVcNxXHf7mWlx0vqjr2vXr/WcxK3bGO5bvgnKMqjueass5zzld2fLHigLj4X2XHSSqek0qMVR1DQ0NDTZ2VHM9oVlgudVR1ZGBgYMhwVHV8c8TvjUq2kuPqVatWdSUrO6p6TlI5eV0ezNe6pAFW17BI01F/14tF3TkKYPFVXFIQcX8hCH1ABSJ/VwnM/6ClA7Zv60UIv2GRJFj8wQkBMH3hhSaUrwDhu+tD7L+lAuYrXFMG818FC4P5MHtg4qvEJMDiDFkQukPLEOIuN4h5G5apQ/UZQdVxQPgtelCaD0X8QIwoCp8Bqh6T/uEACjeDHkOs5jRA7dvQZw01D6IeYQ6MD6Fh/mKA8hWuGcPdAYqPVW4MYP6Dvz5wcZD9CPM80PhQf8LiBUrD1MPcB+PD7EWnHRi0wOYuUICFH8S9GftCweINNwwcAUN1fmSQAgAA\"},\"shape\":[82],\"dtype\":\"float64\",\"order\":\"little\"}]]},\"cols\":[\"index\",\"Salary\"]},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"7d650dc5-1108-4fa2-bc68-99578e02699e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#ff0000\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"c54c1ea8-6ddf-411b-91bc-f1de79ea3a34\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#ff0000\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"50563c06-775f-4549-8d6f-99f89a1f3a3e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#ff0000\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"62def80d-b66e-4190-82ce-9f716473669e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#ff0000\"}}]}"]]}],["Job Roles",{"type":"map","entries":[["header","{\"msgid\": \"bd031f33-9c1b-456c-bda1-81183745c2b7\", \"msgtype\": \"PATCH-DOC\"}"],["metadata","{\"use_buffers\": false}"],["content","{\"events\":[{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"b357eb2c-3845-4549-96d1-21d4d88c78c5\"},\"attr\":\"hold_render\",\"new\":false},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"start\",\"new\":-0.4285714285714286},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_start\",\"new\":-0.4285714285714286},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"end\",\"new\":10.428571428571429},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_end\",\"new\":10.428571428571429},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"end\",\"new\":1012897.2560722573},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"reset_end\",\"new\":1012897.2560722573},{\"kind\":\"ColumnDataChanged\",\"model\":{\"id\":\"3aac6c03-e84b-49a7-b8ce-627f0bb1211e\"},\"attr\":\"data\",\"data\":{\"type\":\"map\",\"entries\":[[\"index\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/wXBgQEAEAgAsKkI/x/cBguBRGHjoHHx8DGStD/1LAAAAA==\"},\"shape\":[11],\"dtype\":\"int32\",\"order\":\"little\"}],[\"Salary\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/wFYAKf/QY+QAS5FIUG3AQxUzNcmQQkirRfwQC1BHFdgZmWeIkFkXXN/rDclQQRRmtDLOyFB8RVf8dXsKkGJZ/sqG6odQSc2awtFDipBjKYHwahKHkHr3bLKb1sZQVx0S99YAAAA\"},\"shape\":[11],\"dtype\":\"float64\",\"order\":\"little\"}]]},\"cols\":[\"index\",\"Salary\"]},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"7d650dc5-1108-4fa2-bc68-99578e02699e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#bfbf00\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"c54c1ea8-6ddf-411b-91bc-f1de79ea3a34\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#bfbf00\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"50563c06-775f-4549-8d6f-99f89a1f3a3e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#bfbf00\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"62def80d-b66e-4190-82ce-9f716473669e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#bfbf00\"}}]}"]]}],["Employment Status",{"type":"map","entries":[["header","{\"msgid\": \"353f1496-3a70-4f93-a78d-4a60473b58fd\", \"msgtype\": \"PATCH-DOC\"}"],["metadata","{\"use_buffers\": false}"],["content","{\"events\":[{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"b357eb2c-3845-4549-96d1-21d4d88c78c5\"},\"attr\":\"hold_render\",\"new\":false},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"start\",\"new\":-0.12857142857142856},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_start\",\"new\":-0.12857142857142856},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"end\",\"new\":3.1285714285714286},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_end\",\"new\":3.1285714285714286},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"end\",\"new\":774235.3117085309},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"reset_end\",\"new\":774235.3117085309},{\"kind\":\"ColumnDataChanged\",\"model\":{\"id\":\"3aac6c03-e84b-49a7-b8ce-627f0bb1211e\"},\"attr\":\"data\",\"data\":{\"type\":\"map\",\"entries\":[[\"index\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/wXBAQEAAAABoPD/s4KgGA6pr44nEAAAAA==\"},\"shape\":[4],\"dtype\":\"int32\",\"order\":\"little\"}],[\"Salary\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/xOsv7PLRVXZseQo10GNRDXHhMUPtvw4Jer44SC7vM1pYUcA50yLNyAAAAA=\"},\"shape\":[4],\"dtype\":\"float64\",\"order\":\"little\"}]]},\"cols\":[\"index\",\"Salary\"]},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"7d650dc5-1108-4fa2-bc68-99578e02699e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#00bfbf\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"c54c1ea8-6ddf-411b-91bc-f1de79ea3a34\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#00bfbf\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"50563c06-775f-4549-8d6f-99f89a1f3a3e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#00bfbf\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"62def80d-b66e-4190-82ce-9f716473669e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#00bfbf\"}}]}"]]}],["Location",{"type":"map","entries":[["header","{\"msgid\": \"65926fce-c613-4e61-b466-7761bc5f45af\", \"msgtype\": \"PATCH-DOC\"}"],["metadata","{\"use_buffers\": false}"],["content","{\"events\":[{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"b357eb2c-3845-4549-96d1-21d4d88c78c5\"},\"attr\":\"hold_render\",\"new\":false},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"start\",\"new\":-0.38571428571428573},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_start\",\"new\":-0.38571428571428573},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"end\",\"new\":9.385714285714286},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"623333c5-e360-4e90-b8c1-b8d350a0b9a6\"},\"attr\":\"reset_end\",\"new\":9.385714285714286},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"end\",\"new\":1001940.6571923059},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"854e2f46-c14a-48c6-b5e6-022069c5a7f2\"},\"attr\":\"reset_end\",\"new\":1001940.6571923059},{\"kind\":\"ColumnDataChanged\",\"model\":{\"id\":\"3aac6c03-e84b-49a7-b8ce-627f0bb1211e\"},\"attr\":\"data\",\"data\":{\"type\":\"map\",\"entries\":[[\"index\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/wXBhwEAIAgAIKxc/z8cQODg4iFRaAwWHwJ5740oAAAA\"},\"shape\":[10],\"dtype\":\"int32\",\"order\":\"little\"}],[\"Salary\",{\"type\":\"ndarray\",\"array\":{\"type\":\"bytes\",\"data\":\"H4sIAAEAAAAA/wFQAK//B/2reuFwJkFB47FS39YhQd6gk1B2uSRBDTzdmh8zI0GhvYT20uQgQZasZCUbsiVBHD3B0ROuJEEA5aq8OFUtQRjIpHiJGiRBSWpPn1gSJUFKX/jYUAAAAA==\"},\"shape\":[10],\"dtype\":\"float64\",\"order\":\"little\"}]]},\"cols\":[\"index\",\"Salary\"]},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"7d650dc5-1108-4fa2-bc68-99578e02699e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#0000ff\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"c54c1ea8-6ddf-411b-91bc-f1de79ea3a34\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#0000ff\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"50563c06-775f-4549-8d6f-99f89a1f3a3e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#0000ff\"}},{\"kind\":\"ModelChanged\",\"model\":{\"id\":\"62def80d-b66e-4190-82ce-9f716473669e\"},\"attr\":\"fill_color\",\"new\":{\"type\":\"value\",\"value\":\"#0000ff\"}}]}"]]}]]},"widgets":{"type":"map","entries":[["5251d144-8ce7-4c81-bd30-00f5d4cd0b1a",0]]},"values":["Location"]}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}}
+    </script>
+    <script>
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('dd55a2c4-1bc8-4c19-85d9-740f53955f56').textContent;
+              const render_items = [{"docid":"0c9e91bb-c66e-49af-8e44-e2c606646475","roots":{"a6ef2ba1-de9b-418b-b4f9-a14cf871b9d1":"e30d71b5-a3af-49f6-bf29-14cfb99d6e8b","e806e088-59b1-49b8-a483-4fd019342bce":"ad9eda32-fffe-4b1f-abdc-f87e0fd233ae"},"root_ids":["a6ef2ba1-de9b-418b-b4f9-a14cf871b9d1","e806e088-59b1-49b8-a483-4fd019342bce"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn, {once: true});
+      })();
+    </script>
+  <script>
+    (function() {
+      const loader = document.getElementById('loader');
+      if (!loader) { return; }
+      function showError(message) {
+        const errorEl = document.getElementById('loader-error');
+        loader.style.display = 'flex';
+        loader.classList.add('error');
+        loader.querySelector('.spinner').style.display = 'none';
+        errorEl.style.display = 'block';
+        errorEl.textContent = message;
+      }
+      window.panelLoader = {
+        hide() { loader.style.display = 'none'; },
+        status(message) { document.getElementById('loader-msg').textContent = message; },
+        error: showError,
+      };
+      let timeout = 0;
+      function checkIdle() {
+        if (typeof Bokeh === 'undefined') {
+          if (timeout > 10000) {
+            showError('Resources could not be loaded.');
+            return;
+          }
+        } else if (window._panelConnectionError) {
+          showError('Connection with the server could not be established.');
+          return;
+        } else if (Bokeh.index && Bokeh.index.roots[0] && Bokeh.index.roots[0].is_idle) {
+          loader.style.display = 'none';
+          return;
+        } else if (timeout > 30000) {
+          loader.style.display = 'none';
+          return;
+        }
+        timeout += 100;
+        loader.style.display = 'flex';
+        setTimeout(checkIdle, 100);
+      }
+      setTimeout(checkIdle, 100);
+    })();
+  </script>
+  </body>
+</html>

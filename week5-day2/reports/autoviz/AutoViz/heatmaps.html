@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme-managed="false">
+  <head>
+    <meta charset="utf-8">
+    <title>Panel</title>
+<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.holoviz.org/panel/1.10.0/dist/images/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.holoviz.org/panel/1.10.0/dist/images/favicon.ico">    <style>
+      html, body {
+	display: flow-root;
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        flex-direction: column;
+        gap: 16px;
+      }
+      #loader.error {
+        background: none;
+      }
+      #loader .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        animation: pn-loader-spin 1s linear infinite;
+      }
+      #loader-msg {
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+      }
+      #loader-msg:empty, #loader.error #loader-msg {
+        display: none;
+      }
+      #loader-error {
+        display: none;
+        color: #d32f2f;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+        padding: 12px 20px;
+        background: rgba(211, 47, 47, 0.08);
+        border: 1px solid rgba(211, 47, 47, 0.3);
+        border-radius: 8px;
+      }
+      @keyframes pn-loader-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+<script type="esms-options">{"shimMode": true}</script>
+
+<script type="text/javascript" src="https://cdn.holoviz.org/panel/1.10.0/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.holoviz.org/panel/1.10.0/dist/panel.min.js"></script>
+
+<script type="text/javascript">
+  // Tells the panel.js resource registry which component libraries the tags
+  // above have already satisfied, so nothing is fetched a second time. The
+  // queue covers the case where panel.js itself has not executed yet.
+  (function() {
+    const declared = {"libs": [{"name": "reactiveesm:extra", "js": ["https://cdn.holoviz.org/panel/1.10.0/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"]}]};
+    if (window.__panel_resources__ != null) {
+      window.__panel_resources__.declare(declared);
+    } else {
+      (window.__panel_resources_declared__ = window.__panel_resources_declared__ || []).push(declared);
+    }
+  })();
+</script><script type="text/javascript">
+  Bokeh.set_log_level("info");
+</script>  </head>
+  <body>
+    <div id="loader" style="display: none;">
+      <div class="spinner"></div>
+      <div id="loader-msg"></div>
+      <div id="loader-error"></div>
+    </div>
+    <div id="ba295d17-65cd-4174-95a7-56a5beba0fa2" data-root-id="2c85badc-2974-47f7-a1fc-83acd63a73da" style="display: contents;"></div>
+  <script>
+    (function() {
+      // Records failed connections so the loader can report them instead
+      // of spinning until it times out.
+      const NativeWebSocket = window.WebSocket;
+      function TrackedWebSocket(...args) {
+        const ws = new NativeWebSocket(...args);
+        ws.addEventListener('error', () => { window._panelConnectionError = true; });
+        ws.addEventListener('close', (e) => { if (e.code !== 1000) { window._panelConnectionError = true; } });
+        return ws;
+      }
+      TrackedWebSocket.prototype = NativeWebSocket.prototype;
+      for (const state of ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED']) {
+        Object.defineProperty(TrackedWebSocket, state, {value: NativeWebSocket[state]});
+      }
+      window.WebSocket = TrackedWebSocket;
+    })();
+  </script>
+  
+    <script type="application/json" id="e14c3313-e1c3-4ece-8adf-eb7a0a87083a">
+      {"1fe4c462-9f8f-452b-b7b1-41b312a55ba9":{"version":"3.10.2","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"a58549e8-d426-4ca2-a8b1-983416e74d94","attributes":{"notifications":{"type":"object","name":"Notifications","id":"b714ed08-662f-4dca-9cc7-bdb31bc02757"}}},"roots":[{"type":"object","name":"Row","id":"2c85badc-2974-47f7-a1fc-83acd63a73da","attributes":{"name":"Row01018","tags":["embedded"],"stylesheets":["\n:host(.pn-loading):before, .pn-loading:before {\n  background-color: #c3c3c3;\n  width: calc(min(40px, 300px));\n  height: calc(min(40px, 300px));\n  mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n  -webkit-mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n}",{"type":"object","name":"ImportedStyleSheet","id":"b157618e-4ae3-4a13-ba2d-b35799308521","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/loading.css"}},{"type":"object","name":"ImportedStyleSheet","id":"26c1d15f-8bee-4bff-899c-4533d2b4c622","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/listpanel.css"}},{"type":"object","name":"ImportedStyleSheet","id":"a3efee46-2900-4955-a6d6-9ca500ed6b07","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/bundled/theme/default.css"}},{"type":"object","name":"ImportedStyleSheet","id":"43fb57a7-aad4-4f7f-b37b-a001094a5619","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/bundled/theme/native.css"}}],"margin":0,"align":"start","children":[{"type":"object","name":"Figure","id":"b1868561-20cc-4f4b-8cd6-d637f3d827be","attributes":{"height":500,"margin":[5,10],"sizing_mode":"fixed","align":"start","x_range":{"type":"object","name":"FactorRange","id":"d57d276a-14e7-4eee-8a41-2a904bb43859","attributes":{"name":"columns","tags":[[["columns",null]],[]],"factors":["Rating","Salary","Salaries Reported"]}},"y_range":{"type":"object","name":"FactorRange","id":"ea76b7f8-3e76-4b81-98df-5a935dc98dea","attributes":{"name":"index","tags":[[["index",null]],{"type":"map","entries":[["invert_yaxis",false],["autorange",false]]}],"factors":["Rating","Salary","Salaries Reported"]}},"x_scale":{"type":"object","name":"CategoricalScale","id":"cd0de92c-d64c-4a3b-bc57-cd61c35e35d2"},"y_scale":{"type":"object","name":"CategoricalScale","id":"9211fdea-bfa8-4f63-afcd-79394ec5c11d"},"title":{"type":"object","name":"Title","id":"551fcc20-978c-4437-8379-9eee38512fc9","attributes":{"text":"Heatmap of all Numeric Variables including target","text_color":"black","text_font_size":"12pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"aed33c33-a291-4dcb-ae77-691423273c9e","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"cf8a3311-c4de-4877-be21-8196d1e21cf2","attributes":{"selected":{"type":"object","name":"Selection","id":"e4d79a46-55e2-40dd-9cc1-25571f015f5c","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"0bf4a3e5-f0d5-4459-9f68-2e59edac19e1"},"data":{"type":"map","entries":[["x",[0]],["y",[0]],["image",[{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAA/2NgAIEP9jvkWl8H7phnXy2yzv1hVct+GB8szfABSjMwwOQh4jDwwR4AN5QPd0gAAAA="},"shape":[3,3],"dtype":"float64","order":"little"}]],["dh",[3]],["dw",[3]]]}}},"view":{"type":"object","name":"CDSView","id":"4e757aee-4bc6-4b24-9136-0702275b49de","attributes":{"filter":{"type":"object","name":"AllIndices","id":"835e1e04-3b56-48f0-81d2-80769d2ab31b"}}},"glyph":{"type":"object","name":"Image","id":"a95cbe79-c06f-4806-8e54-0e7082550d9d","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"dw":{"type":"field","field":"dw"},"dh":{"type":"field","field":"dh"},"image":{"type":"field","field":"image"},"color_mapper":{"type":"object","name":"LinearColorMapper","id":"f8da7f11-a21a-44e0-a387-0fb5ff7fab2d","attributes":{"palette":["#75968f","#a5bab7","#c9d9d3","#e2e2e2","#dfccce","#ddb7b1","#cc7878","#933b41","#550b1d"],"nan_color":"white","low":-0.01,"high":1.0}}}},"selection_glyph":{"type":"object","name":"Image","id":"0054422b-da58-4861-845a-435f0b35c285","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"dw":{"type":"field","field":"dw"},"dh":{"type":"field","field":"dh"},"global_alpha":{"type":"value","value":1.0},"image":{"type":"field","field":"image"},"color_mapper":{"id":"f8da7f11-a21a-44e0-a387-0fb5ff7fab2d"}}},"nonselection_glyph":{"type":"object","name":"Image","id":"2b5a1838-a647-452f-8f4a-cfacc8e7d3da","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"dw":{"type":"field","field":"dw"},"dh":{"type":"field","field":"dh"},"global_alpha":{"type":"value","value":0.1},"image":{"type":"field","field":"image"},"color_mapper":{"id":"f8da7f11-a21a-44e0-a387-0fb5ff7fab2d"}}},"muted_glyph":{"type":"object","name":"Image","id":"881abda8-9256-4518-ad23-5544ad5684d6","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"dw":{"type":"field","field":"dw"},"dh":{"type":"field","field":"dh"},"global_alpha":{"type":"value","value":0.2},"image":{"type":"field","field":"image"},"color_mapper":{"id":"f8da7f11-a21a-44e0-a387-0fb5ff7fab2d"}}}}},{"type":"object","name":"GlyphRenderer","id":"c27af0f3-3604-441c-a0ce-a2e9cb89a965","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"816104e7-b6dd-441b-a888-59a872383510","attributes":{"selected":{"type":"object","name":"Selection","id":"b942ab3f-3668-4846-aecc-dd2a9e98994f","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"a028dc7c-be09-43e3-bdcc-652cc43006b1"},"data":{"type":"map","entries":[["columns",["Rating","Rating","Rating","Salary","Salary","Salary","Salaries Reported","Salaries Reported","Salaries Reported"]],["index",["Rating","Salary","Salaries Reported","Rating","Salary","Salaries Reported","Rating","Salary","Salaries Reported"]],["value",["1","0.03","-0.01","0.03","1","0","-0.01","0","1"]]]}}},"view":{"type":"object","name":"CDSView","id":"ca6450be-59da-42c3-bee2-31bb41fe3cfb","attributes":{"filter":{"type":"object","name":"AllIndices","id":"b9ba030e-eeeb-4c09-8086-1a3404a8716e"}}},"glyph":{"type":"object","name":"Text","id":"9544fa9a-7d3c-45f2-afbb-f5f613ba996c","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"columns"},"y":{"type":"field","field":"index"},"text":{"type":"field","field":"value"},"text_color":{"type":"value","value":"#30a2da"},"text_font_size":{"type":"value","value":"7pt"},"text_align":{"type":"value","value":"center"},"text_baseline":{"type":"value","value":"middle"}}},"selection_glyph":{"type":"object","name":"Text","id":"b78a67a3-ccb4-4451-ba9d-0ea9eb8d46d3","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"columns"},"y":{"type":"field","field":"index"},"text":{"type":"field","field":"value"},"angle":{"type":"value","value":0},"x_offset":{"type":"value","value":0},"y_offset":{"type":"value","value":0},"outline_shape":{"type":"value","value":"box"},"text_color":{"type":"value","value":"#30a2da"},"text_outline_color":{"type":"value","value":null},"text_outline_width":{"type":"value","value":1},"text_alpha":{"type":"value","value":1.0},"text_font_size":{"type":"value","value":"7pt"},"text_font_style":{"type":"value","value":"normal"},"text_align":{"type":"value","value":"center"},"text_baseline":{"type":"value","value":"middle"},"text_line_height":{"type":"value","value":1.2},"background_fill_color":{"type":"value","value":null},"background_fill_alpha":{"type":"value","value":1.0},"background_hatch_color":{"type":"value","value":null},"background_hatch_alpha":{"type":"value","value":1.0},"background_hatch_scale":{"type":"value","value":12.0},"background_hatch_pattern":{"type":"value","value":null},"background_hatch_weight":{"type":"value","value":1.0},"border_line_color":{"type":"value","value":null},"border_line_alpha":{"type":"value","value":1.0},"border_line_width":{"type":"value","value":1},"border_line_join":{"type":"value","value":"bevel"},"border_line_cap":{"type":"value","value":"butt"},"border_line_dash":{"type":"value","value":[]},"border_line_dash_offset":{"type":"value","value":0}}},"nonselection_glyph":{"type":"object","name":"Text","id":"0abd3546-1130-48a3-ac75-cf33092ac173","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"columns"},"y":{"type":"field","field":"index"},"text":{"type":"field","field":"value"},"text_color":{"type":"value","value":"#30a2da"},"text_alpha":{"type":"value","value":0.1},"text_font_size":{"type":"value","value":"7pt"},"text_align":{"type":"value","value":"center"},"text_baseline":{"type":"value","value":"middle"}}},"muted_glyph":{"type":"object","name":"Text","id":"03e1f919-866c-468b-a603-fce7380ae022","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"columns"},"y":{"type":"field","field":"index"},"text":{"type":"field","field":"value"},"text_color":{"type":"value","value":"#30a2da"},"text_alpha":{"type":"value","value":0.2},"text_font_size":{"type":"value","value":"7pt"},"text_align":{"type":"value","value":"center"},"text_baseline":{"type":"value","value":"middle"}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"6d6c987b-1c73-4c50-a58c-cb79c35a32d5","attributes":{"tools":[{"type":"object","name":"WheelZoomTool","id":"c07af5be-9fb4-4fbe-87cd-4269628be934","attributes":{"tags":["hv_created"],"renderers":"auto","zoom_together":"none"}},{"type":"object","name":"HoverTool","id":"efc9a854-5b53-4d06-8286-5836d0c6950e","attributes":{"tags":["hv_created"],"renderers":[{"id":"aed33c33-a291-4dcb-ae77-691423273c9e"}],"tooltips":[["columns","$x{x}"],["index","$y{y}"],["value","@image"]],"formatters":{"type":"map","entries":[["$x",{"type":"object","name":"CustomJSHover","id":"3c1e1b80-2cf5-4aeb-9378-636ec83733f0","attributes":{"args":{"type":"map","entries":[["src",{"id":"cf8a3311-c4de-4877-be21-8196d1e21cf2"}],["x_range",{"id":"d57d276a-14e7-4eee-8a41-2a904bb43859"}],["y_range",{"id":"ea76b7f8-3e76-4b81-98df-5a935dc98dea"}]]},"code":"\n            const formatter = Bokeh.require(\"core/util/templating\").get_formatter();\n            const data = src.data;\n            const [ny, nx] = data.image[0].shape;\n            const {x, y} = special_vars;\n            if (format == \"x\") {\n              const x0 = data.x[0];\n              const dx = data.dw[0] / nx;\n              const ix = Math.floor((x - x0) / dx);\n              const factors = x_range.factors ? x_range.factors[ix] : formatter(x0 + dx / 2 + ix * dx)\n              return (ix &gt;= 0 &amp;&amp; ix &lt; nx) ? factors : \"-\";\n            } else {\n              const y0 = data.y[0];\n              const dy = data.dh[0] / ny;\n              const iy = Math.floor((y - y0) / dy);\n              const factors = y_range.factors ? y_range.factors[iy] : formatter(y0 + dy / 2 + iy * dy)\n              return (iy &gt;= 0 &amp;&amp; iy &lt; ny) ? factors : \"-\";\n            }"}}],["$y",{"id":"3c1e1b80-2cf5-4aeb-9378-636ec83733f0"}]]},"sort_by":null}},{"type":"object","name":"SaveTool","id":"5607089d-6b9a-4ab4-8f4d-c18cd91aecd4"},{"type":"object","name":"PanTool","id":"29a92ee5-544f-4b3c-9c71-b0b8e04074e2"},{"type":"object","name":"BoxZoomTool","id":"8b270b0c-4d38-449f-81f9-eec7a475ccd3","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"f552138c-5181-4575-b544-3567574c2911","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"99a7715d-baa9-464a-ab6a-8b7d68690f05","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"4480ae43-bfc9-444b-8be3-751a11434387","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"d636e413-d310-45b3-aedf-715b33af51ff"}],"active_drag":{"id":"29a92ee5-544f-4b3c-9c71-b0b8e04074e2"},"active_scroll":{"id":"c07af5be-9fb4-4fbe-87cd-4269628be934"}}},"toolbar_location":"above","left":[{"type":"object","name":"CategoricalAxis","id":"aa266c71-b41f-4cbe-b695-3ef943990921","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"845cf987-158e-4491-bec1-863bbf41d258"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"aa71cdcf-1d8b-4a06-9cd5-d1faa59c2da3"},"axis_label":"","major_label_policy":{"type":"object","name":"AllLabels","id":"4487b755-54d1-4000-b56f-d5e72c5e77a0"}}}],"right":[{"type":"object","name":"ColorBar","id":"181445d7-e1d8-4c1d-a383-bbba33889438","attributes":{"location":[0,0],"title":"value","ticker":{"type":"object","name":"BasicTicker","id":"d5dc6ca5-1d46-40c3-b737-2361820c1558","attributes":{"mantissas":[1,2,5]}},"major_label_policy":{"type":"object","name":"NoOverlap","id":"b46bd740-f5fc-4dda-91d6-4c2383f5c3ec"},"label_standoff":8,"major_tick_line_color":"black","bar_line_color":"black","color_mapper":{"id":"f8da7f11-a21a-44e0-a387-0fb5ff7fab2d"}}}],"below":[{"type":"object","name":"CategoricalAxis","id":"dcece406-0827-49db-a1d9-6e9f2c1ee4c7","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"b9395c62-d761-4b46-a646-0d84b3a4090d"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"5d62f86c-ee87-49c7-a7c4-d71c39f0cf4f"},"axis_label":"","major_label_orientation":1.2217304763960306,"major_label_policy":{"type":"object","name":"AllLabels","id":"9c9295b1-a1d4-442d-b079-64d037b1cd1e"}}}],"center":[{"type":"object","name":"Grid","id":"2092f932-f20b-43a7-ba1f-d75168bf16c4","attributes":{"axis":{"id":"dcece406-0827-49db-a1d9-6e9f2c1ee4c7"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"14790dab-fd3f-4e05-a5b0-528e05de0dc4","attributes":{"dimension":1,"axis":{"id":"aa266c71-b41f-4cbe-b695-3ef943990921"},"grid_line_color":null}}],"min_border_top":10,"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"output_backend":"webgl"}}]}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}}
+    </script>
+    <script>
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('e14c3313-e1c3-4ece-8adf-eb7a0a87083a').textContent;
+              const render_items = [{"docid":"1fe4c462-9f8f-452b-b7b1-41b312a55ba9","roots":{"2c85badc-2974-47f7-a1fc-83acd63a73da":"ba295d17-65cd-4174-95a7-56a5beba0fa2"},"root_ids":["2c85badc-2974-47f7-a1fc-83acd63a73da"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn, {once: true});
+      })();
+    </script>
+  <script>
+    (function() {
+      const loader = document.getElementById('loader');
+      if (!loader) { return; }
+      function showError(message) {
+        const errorEl = document.getElementById('loader-error');
+        loader.style.display = 'flex';
+        loader.classList.add('error');
+        loader.querySelector('.spinner').style.display = 'none';
+        errorEl.style.display = 'block';
+        errorEl.textContent = message;
+      }
+      window.panelLoader = {
+        hide() { loader.style.display = 'none'; },
+        status(message) { document.getElementById('loader-msg').textContent = message; },
+        error: showError,
+      };
+      let timeout = 0;
+      function checkIdle() {
+        if (typeof Bokeh === 'undefined') {
+          if (timeout > 10000) {
+            showError('Resources could not be loaded.');
+            return;
+          }
+        } else if (window._panelConnectionError) {
+          showError('Connection with the server could not be established.');
+          return;
+        } else if (Bokeh.index && Bokeh.index.roots[0] && Bokeh.index.roots[0].is_idle) {
+          loader.style.display = 'none';
+          return;
+        } else if (timeout > 30000) {
+          loader.style.display = 'none';
+          return;
+        }
+        timeout += 100;
+        loader.style.display = 'flex';
+        setTimeout(checkIdle, 100);
+      }
+      setTimeout(checkIdle, 100);
+    })();
+  </script>
+  </body>
+</html>

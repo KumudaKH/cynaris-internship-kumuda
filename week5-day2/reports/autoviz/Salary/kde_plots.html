@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme-managed="false">
+  <head>
+    <meta charset="utf-8">
+    <title>Panel</title>
+<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.holoviz.org/panel/1.10.0/dist/images/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.holoviz.org/panel/1.10.0/dist/images/favicon.ico">    <style>
+      html, body {
+	display: flow-root;
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        flex-direction: column;
+        gap: 16px;
+      }
+      #loader.error {
+        background: none;
+      }
+      #loader .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        animation: pn-loader-spin 1s linear infinite;
+      }
+      #loader-msg {
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+      }
+      #loader-msg:empty, #loader.error #loader-msg {
+        display: none;
+      }
+      #loader-error {
+        display: none;
+        color: #d32f2f;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        text-align: center;
+        padding: 12px 20px;
+        background: rgba(211, 47, 47, 0.08);
+        border: 1px solid rgba(211, 47, 47, 0.3);
+        border-radius: 8px;
+      }
+      @keyframes pn-loader-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+<script type="esms-options">{"shimMode": true}</script>
+
+<script type="text/javascript" src="https://cdn.holoviz.org/panel/1.10.0/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.2.min.js"></script>
+<script type="text/javascript" src="https://cdn.holoviz.org/panel/1.10.0/dist/panel.min.js"></script>
+
+<script type="text/javascript">
+  // Tells the panel.js resource registry which component libraries the tags
+  // above have already satisfied, so nothing is fetched a second time. The
+  // queue covers the case where panel.js itself has not executed yet.
+  (function() {
+    const declared = {"libs": [{"name": "reactiveesm:extra", "js": ["https://cdn.holoviz.org/panel/1.10.0/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"]}]};
+    if (window.__panel_resources__ != null) {
+      window.__panel_resources__.declare(declared);
+    } else {
+      (window.__panel_resources_declared__ = window.__panel_resources_declared__ || []).push(declared);
+    }
+  })();
+</script><script type="text/javascript">
+  Bokeh.set_log_level("info");
+</script>  </head>
+  <body>
+    <div id="loader" style="display: none;">
+      <div class="spinner"></div>
+      <div id="loader-msg"></div>
+      <div id="loader-error"></div>
+    </div>
+    <div id="e776ef56-79cb-4d5b-8411-5dcef2956b99" data-root-id="f4ae2d7d-af66-4ba0-8c57-5338da0a95a2" style="display: contents;"></div>
+  <script>
+    (function() {
+      // Records failed connections so the loader can report them instead
+      // of spinning until it times out.
+      const NativeWebSocket = window.WebSocket;
+      function TrackedWebSocket(...args) {
+        const ws = new NativeWebSocket(...args);
+        ws.addEventListener('error', () => { window._panelConnectionError = true; });
+        ws.addEventListener('close', (e) => { if (e.code !== 1000) { window._panelConnectionError = true; } });
+        return ws;
+      }
+      TrackedWebSocket.prototype = NativeWebSocket.prototype;
+      for (const state of ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED']) {
+        Object.defineProperty(TrackedWebSocket, state, {value: NativeWebSocket[state]});
+      }
+      window.WebSocket = TrackedWebSocket;
+    })();
+  </script>
+  
+    <script type="application/json" id="f3879ef4-d7b1-4f5a-a596-cc3c9d0bd9c8">
+      {"b2ce9b1f-2988-4486-b4cf-6d0a18528223":{"version":"3.10.2","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"78f279f7-0672-4c8a-bdb0-c586e61c36c0","attributes":{"notifications":{"type":"object","name":"Notifications","id":"8a5b89e7-73e0-470e-8712-10b590125eac"}}},"roots":[{"type":"object","name":"Row","id":"f4ae2d7d-af66-4ba0-8c57-5338da0a95a2","attributes":{"name":"Row01676","tags":["embedded"],"stylesheets":["\n:host(.pn-loading):before, .pn-loading:before {\n  background-color: #c3c3c3;\n  width: calc(min(40px, 300px));\n  height: calc(min(40px, 300px));\n  mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n  -webkit-mask-size: calc(min(40px, 300px)) calc(min(40px, 300px));\n}",{"type":"object","name":"ImportedStyleSheet","id":"1ff48695-512b-4074-88a6-fd581ebec703","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/loading.css"}},{"type":"object","name":"ImportedStyleSheet","id":"265684fd-9860-44c3-a0ec-d280ccabd525","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/css/listpanel.css"}},{"type":"object","name":"ImportedStyleSheet","id":"010b95d3-fcda-4405-a562-1c68cdc83022","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/bundled/theme/default.css"}},{"type":"object","name":"ImportedStyleSheet","id":"e119bed3-b498-48e1-800d-0b69c869ce6c","attributes":{"url":"https://cdn.holoviz.org/panel/1.10.0/dist/bundled/theme/native.css"}}],"margin":0,"align":"start","children":[{"type":"object","name":"Figure","id":"32f8e376-bdcc-42e2-9b34-30d04ccb1575","attributes":{"height":400,"margin":[5,10],"sizing_mode":"fixed","align":"start","x_range":{"type":"object","name":"Range1d","id":"3d7823df-0b1e-4210-b0d1-d12978b2c111","attributes":{"name":"Salary","tags":[[["Salary",null]],[]],"start":-354582.89859443903,"end":90356694.89859444,"reset_start":-354582.89859443903,"reset_end":90356694.89859444}},"y_range":{"type":"object","name":"Range1d","id":"ce111e5c-2b3c-4f98-8284-d472d7c947c6","attributes":{"name":"Salary_density","tags":[[["Density",null]],{"type":"map","entries":[["invert_yaxis",false],["autorange",false]]}],"end":9.459482993172182e-07,"reset_start":0,"reset_end":9.459482993172182e-07}},"x_scale":{"type":"object","name":"LinearScale","id":"743fe6d5-67de-42ab-8f50-1178bced88c3"},"y_scale":{"type":"object","name":"LinearScale","id":"dcb7eeef-85dc-47e5-93f9-16fb6220ef4b"},"title":{"type":"object","name":"Title","id":"e037c561-9df7-48f2-bff0-7359b5b0a688","attributes":{"text":"KDE (Distribution) Plot of Target Variable","text_color":"black","text_font_size":"12pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"e3396283-7478-4886-8b62-3d5f35aa933f","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"7e2d0fdc-7752-49fb-bdbc-9718c15bdf6e","attributes":{"selected":{"type":"object","name":"Selection","id":"0fbd3fde-e2ba-4ebe-9eb5-b726c7a06dac","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"c35eb7ae-c118-444e-88b1-4f2310e181b8"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAA/0WVfUzUdRzHb8LcOYvjImhh4O4ON1PG4qnkIeotpweLCQUkiWAYaJzxHCAPytPBHQeH9wCOBGEjMJ4aElvKAYpAjjxF3aSleMxCiUVAZgMtBq3Nd/312377/b7f7+fzeb9eX4Hb6/WxrY5XQq4+lfu5SRAistkZoXsT31rH7kK+G+PewqYphGJhbFuveWsEltMUJnVTJNadk7OjXPZDeFW7X9J4AOKMbr9F53i8aPeLznr9YxhnVtaCqw/DqV+Y3vleIs7UvPqT/eYj2Jq444Pca0fR6hcwaq1MxnZRmI889Bi6Hx5s6xSmwNOc4iQeT8WU4vLoQHA6zn6jWE2VZeCQyy0fqU0mpJqYlMmfM/HwjwdtmpEsnItLng5o+Ryfjj92WirJxg7v/PCWhBwsnN2giUYueoRVw0LJcWRkOTwbEOTBZ7rBM+1BHpZD3JTS4Xxc7OtumWwuQL6r75SmqBCBlUMOgYdOYP3JnrCloJO4Ej+hanEtgur7D4ei14ogO7OUb5tWDNVN71emp4vxyPZ434V9JdjrPxhuuFSCr9IEvyk9SiFsk2vkTaVQ3tO4udqVwSK6Mbxyogzue8RxtxfKoMuPftYZp8Jizxd1qhsqhD+yesa/XY7zztKJt74uhzjiiFLsUoHM8s6N89UVuGNebBlbrYDv717vNH2mxultuVO599VYOTCQ+36YBjH6dYedgxr0fxd83ta9Es5/q8OmGypR+Mb1uQubtbAm2ZcbCrQIaoiSHJvXovlW/ZA8tgqCjdaPXC1VSAiQLK/4V2MkPcl4u7MasnMdHl3OOqimFq6ptDrM2nsdjf9LB8XeHJtdyhq0F5ibxfdqsKl3LWA+9BSUs7t/HOs/hVldsP/Nl/U43Z4kHAzTQzGq/qFdpceKtaO1blCP9qeWzNI/9YhxWHw3zd2ATR72ooOJBphDvKwhjQYoP4nq8r1jwJaTOXnSF4yw1NcrRHIjCvvMjqsFRrhP3J+Z6zPCOrfWOzlvRI2NpHhEZkKQa/C+nlgTlnYlvdZoMqE5Uv2rxmJCRGrHxWybWggqLRWHA2rR++VCVHhWLRIuiWSBXbV46a7n4+0ztRh9EnnZcUsdsuxydBsi6/AvFkva/598z+/4H9fhutyH+/IcPBfPyXOzDtbFOlk3+8C+sE/sG/vIvrLP7DvnwLlwTpwb58i5cs6cO3PAXDAnzA1zxFwxZ8wdc8hcMqfMLXPMXDPnzD05IBfkhNyQI3JFzsgdOSSX5JTckuP/uH7OObmnB+gFeoLeoEfoFXqG3qGH6CV6it6ix+g1eo7eowfpRXqS3qRH6VV6lt6lh+lleprepsfpdXqe3uc9wHuB94Tg+b3xD5uxIH1ABgAA"},"shape":[200],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAA/2NgGAWjYBTgAi9qra5EnqmxDVb8vvLmhCc2hl+fxAlFfDLrEUw9dT5/ibbMhgJx2YI/Us8WRm2q3faDBZc5o2AUUBNcsLPXerDpLtN6sXfHfNZGSvoz1xyO2lWtdZDV4o/EZiezD9XdHSnT1tuIN0qL579mtZtaYb237uJDW7Pat34/tP7aBhySjGIzYrSr2djL1Zr52JZt06+NaekidnGrcwJcryja1d1qKlgi4mY3b32Aqfr7BLtnAcwLp+1ptgv8+HHJh1tr7BJvVtQs7PtgCwANrIhYQAYAAA=="},"shape":[200],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"85e156fa-0e4f-4b7b-a9d4-d6af69c6aad7","attributes":{"filter":{"type":"object","name":"AllIndices","id":"f8e75acc-4123-43ae-b811-1213e816bf15"}}},"glyph":{"type":"object","name":"Patch","id":"348d6b04-36f0-4e30-a017-85fc8fbd857f","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.5,"fill_color":"lightblue","fill_alpha":0.5,"hatch_color":"lightblue","hatch_alpha":0.5}},"selection_glyph":{"type":"object","name":"Patch","id":"8464665e-9660-4509-8bb7-c73bbe8341d1","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.5,"fill_color":"lightblue","fill_alpha":0.5,"hatch_color":"lightblue","hatch_alpha":0.5}},"nonselection_glyph":{"type":"object","name":"Patch","id":"ed7d7401-c43d-4303-a2bd-fbd899959503","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.5,"fill_color":"lightblue","fill_alpha":0.5,"hatch_color":"lightblue","hatch_alpha":0.1}},"muted_glyph":{"type":"object","name":"Patch","id":"191b6e2f-29f8-4531-a27d-1a427a1c2b73","attributes":{"tags":["apply_ranges"],"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.2,"fill_color":"lightblue","fill_alpha":0.2,"hatch_color":"lightblue","hatch_alpha":0.2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"dd9063ad-67cf-4949-b727-4fe01c633c5b","attributes":{"tools":[{"type":"object","name":"WheelZoomTool","id":"490a5ddd-70bf-4a6e-9411-716f496bba75","attributes":{"tags":["hv_created"],"renderers":"auto","zoom_together":"none"}},{"type":"object","name":"SaveTool","id":"2cc3607b-a015-4365-b315-c3d92cb9e733"},{"type":"object","name":"PanTool","id":"388d1a92-c76c-4c69-92db-dd2564f875bb"},{"type":"object","name":"BoxZoomTool","id":"fb0f1a4d-da21-4b6d-b246-c63a60f0ecee","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"d3cb7442-bf3b-4ad3-a51b-8f36e1dc98d6","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"32cba1f1-875d-4129-875c-41f32108df4d","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"cfd43715-fb65-478b-86e4-59e3ebad01c9","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"9be34d34-4a52-48cd-b68e-e372a1fd2152"}],"active_drag":{"id":"388d1a92-c76c-4c69-92db-dd2564f875bb"},"active_scroll":{"id":"490a5ddd-70bf-4a6e-9411-716f496bba75"}}},"left":[{"type":"object","name":"LinearAxis","id":"27b83326-0cc3-43d8-b73b-c68fade9a1d8","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"d42642e7-a3e7-4fac-ad3d-b297619d8cea","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"807ba9f0-6aa1-4ace-9741-8754bbfd2f25"},"axis_label":"Density","major_label_policy":{"type":"object","name":"AllLabels","id":"9f160f74-70d2-447a-a287-344f140192e4"}}}],"below":[{"type":"object","name":"LinearAxis","id":"2d921f91-7a39-4088-ae0f-5e35126f22e3","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"2c496fcc-0978-4153-b480-9ccfe5d4c09f","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"721b7c16-d19e-4c62-afd9-8149b66e80ea"},"axis_label":"Salary","major_label_policy":{"type":"object","name":"AllLabels","id":"25b3e32f-5a02-4870-be22-7e50004ad690"}}}],"center":[{"type":"object","name":"Grid","id":"75c8b7c9-24e5-4d05-a3e8-2251fb7d427b","attributes":{"axis":{"id":"2d921f91-7a39-4088-ae0f-5e35126f22e3"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"07f87103-ff0b-483a-991d-9d591567386e","attributes":{"dimension":1,"axis":{"id":"27b83326-0cc3-43d8-b73b-c68fade9a1d8"},"grid_line_color":null}}],"min_border_top":10,"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"output_backend":"webgl"}}]}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}}
+    </script>
+    <script>
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('f3879ef4-d7b1-4f5a-a596-cc3c9d0bd9c8').textContent;
+              const render_items = [{"docid":"b2ce9b1f-2988-4486-b4cf-6d0a18528223","roots":{"f4ae2d7d-af66-4ba0-8c57-5338da0a95a2":"e776ef56-79cb-4d5b-8411-5dcef2956b99"},"root_ids":["f4ae2d7d-af66-4ba0-8c57-5338da0a95a2"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn, {once: true});
+      })();
+    </script>
+  <script>
+    (function() {
+      const loader = document.getElementById('loader');
+      if (!loader) { return; }
+      function showError(message) {
+        const errorEl = document.getElementById('loader-error');
+        loader.style.display = 'flex';
+        loader.classList.add('error');
+        loader.querySelector('.spinner').style.display = 'none';
+        errorEl.style.display = 'block';
+        errorEl.textContent = message;
+      }
+      window.panelLoader = {
+        hide() { loader.style.display = 'none'; },
+        status(message) { document.getElementById('loader-msg').textContent = message; },
+        error: showError,
+      };
+      let timeout = 0;
+      function checkIdle() {
+        if (typeof Bokeh === 'undefined') {
+          if (timeout > 10000) {
+            showError('Resources could not be loaded.');
+            return;
+          }
+        } else if (window._panelConnectionError) {
+          showError('Connection with the server could not be established.');
+          return;
+        } else if (Bokeh.index && Bokeh.index.roots[0] && Bokeh.index.roots[0].is_idle) {
+          loader.style.display = 'none';
+          return;
+        } else if (timeout > 30000) {
+          loader.style.display = 'none';
+          return;
+        }
+        timeout += 100;
+        loader.style.display = 'flex';
+        setTimeout(checkIdle, 100);
+      }
+      setTimeout(checkIdle, 100);
+    })();
+  </script>
+  </body>
+</html>
