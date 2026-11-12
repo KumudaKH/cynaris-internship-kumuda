@@ -91,3 +91,45 @@ Created W5D3 feature branch, committed implementation and documentation changes,
 
 Completed code review and technical evaluation using CIA Full Stack/Role Mentor Mode.
 _______________________________________________________________________________________________________
+
+# Week 5 – Worklog
+
+## Day 4 – Polars: High-Performance DataFrame Operations
+
+**Date:** 12 November 2026
+
+**Hours Worked:** 1 Hour
+
+### Topics Covered
+Polars, DuckDB, Pandas, DataFrame Operations, Lazy Evaluation, Columnar Storage, Performance Benchmarking
+
+### What I Worked On
+- Generated a synthetic employee dataset containing 100,000 records and 6 columns.
+- Loaded and analysed the dataset using DuckDB, Pandas, and Polars.
+- Executed five analytical queries using DuckDB.
+- Performed equivalent operations using Pandas and Polars.
+- Measured and compared execution times across all three technologies.
+- Created a performance comparison table and visualization chart.
+- Documented implementation details, results, and observations.
+- Captured screenshots of execution outputs as evidence.
+
+### Tools / Technologies Used
+Python, Pandas, Polars, DuckDB, NumPy, Matplotlib, Git, GitHub
+
+### Challenges / Blockers
+Observed differences in execution times across the three libraries. DuckDB's initial query had higher execution time due to initial query overhead. Treated the benchmark results as preliminary and verified that all three libraries produced matching analytical results.
+
+### Deliverables
+- 100,000-row employee dataset
+- DuckDB analytical queries
+- Pandas analysis
+- Polars analysis
+- Performance comparison table
+- Performance comparison chart
+- README documentation
+- Execution evidence screenshots
+
+**CIA Interactions:**
+
+Completed code review and technical evaluation using CIA Full Stack/Role Mentor Mode.
+________________________________________________________________________________________________________
