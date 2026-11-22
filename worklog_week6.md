@@ -129,3 +129,97 @@ Worked on an AI-powered SQL Analyst using Vanna, Ollama, SQLite and FastAPI. The
 **Status:** Implementation completed; final Git and evidence verification pending.
 ____________________________________________________________________________________________________________
 
+## Day 3 — Wednesday, 18 November 2026
+
+**Topic:** W6D3 — Apache Superset: BI Dashboard from SQL Results
+
+**Hours Worked:** 1 hour (curriculum duration — update to actual hours)
+
+### Work Completed
+
+- Continued the Week 6 SQL Analyst project by working on business intelligence dashboard visualisation.
+- Prepared a lightweight, browser-based Employee Analytics Dashboard because of limited laptop storage.
+- Used the existing employee dataset containing 10 records across four departments.
+- Prepared five dashboard visualisations:
+  1. Bar Chart — Employees by Department
+  2. Line Chart — Employee Salary Distribution
+  3. Pie Chart — Department-wise Employee Distribution
+  4. KPI Metric — Total Employees
+  5. Table — Department Salary Summary
+- Prepared SQL queries for employee count, department distribution and salary analysis.
+- Organised the dashboard files, CSV dataset, SQL queries and documentation.
+- Prepared dashboard evidence and GitHub submission steps.
+
+### Tools and Technologies Used
+
+HTML, CSS, JavaScript, SQL, SQLite, CSV, VS Code, Git and GitHub.
+
+**Implementation Note:** Used a lightweight HTML dashboard as an alternative to Apache Superset because of local storage limitations. Apache Superset was not installed or deployed.
+
+### Challenges and Solutions
+
+**Challenge 1: Insufficient Laptop Storage**
+
+**Solution:** Prepared a lightweight HTML-based dashboard that can run directly in a browser without Docker or Apache Superset installation.
+
+**Challenge 2: Presenting SQL Results Visually**
+
+**Solution:** Organised employee data into five visualisations to display department distribution, salaries and employee statistics.
+
+**Challenge 3: Completing the Dashboard Assignment**
+
+**Solution:** Prepared the dashboard implementation and documentation. Actual Apache Superset deployment remains incomplete because of the storage constraint.
+
+### Learning Outcomes
+
+- Understood the role of business intelligence dashboards in data analysis.
+- Learned how SQL query results can be presented using charts and KPI metrics.
+- Gained experience interpreting employee and salary data.
+- Understood the importance of dashboard readability and visualisation selection.
+- Learned how to organise dashboard deliverables for GitHub submission.
+
+### W6D3 Deliverables
+
+| File | Description |
+|---|---|
+| `dashboard.html` | Employee Analytics Dashboard |
+| `employees.csv` | Employee dataset |
+| `queries.sql` | SQL queries for dashboard analysis |
+| `README.md` | Project documentation |
+| `evidence/` | Dashboard screenshot evidence |
+
+### GitHub Details
+
+**Repository:** https://github.com/KumudaKH/cynaris-internship-kumuda
+
+**Branch:** `feat/w6d3-3m-kumuda`
+
+### Pending Tasks
+
+- Verify that all five visualisations display correctly.
+- Present the dashboard to a colleague and record actual feedback.
+- Make one dashboard improvement based on feedback.
+- Complete two CIA mentor interactions.
+- Confirm at least two W6D3 Git commits.
+- Complete the upstream rebase and GitHub push.
+- Create or update the W6D3 Pull Request.
+
+### Day 3 Summary
+
+Worked on the Employee Analytics BI Dashboard using SQL-based employee data. Prepared five visualisations covering employee distribution, salary analysis and key metrics. Due to limited storage, a lightweight HTML dashboard was used instead of a local Apache Superset installation.
+
+**Status:** Alternative dashboard prepared; final validation, colleague feedback, CIA review and GitHub submission pending.
+
+---
+
+## Week 6 Progress Summary
+
+**Day 1:** Vanna setup, SQLite database connectivity, natural-language-to-SQL generation and FastAPI integration.
+
+**Day 2:** Domain-specific Vanna training, custom SQL patterns, query validation and API testing.
+
+**Day 3:** Employee Analytics BI Dashboard with five visualisations and SQL-based reporting.
+
+**Overall Progress:** W6D1–W6D3 implementation work prepared. Final verification and submission requirements should be completed before marking the practical tasks fully finished.
+____________________________________________________________________________________________________________
+
