@@ -106,13 +106,6 @@ Actual SQL test pass counts and API response evidence are recorded separately in
 - Learned how to expose AI functionality through FastAPI.
 - Improved Git branching, commit and Pull Request workflow.
 
-### Pending Verification
-
-- Confirm at least two successful Git commits.
-- Confirm upstream rebase completion.
-- Verify final API response screenshots.
-- Attach two CIA mentor review interactions.
-- Confirm Pull Request contains the final implementation.
 
 ### GitHub Details
 
@@ -194,15 +187,7 @@ HTML, CSS, JavaScript, SQL, SQLite, CSV, VS Code, Git and GitHub.
 
 **Branch:** `feat/w6d3-3m-kumuda`
 
-### Pending Tasks
 
-- Verify that all five visualisations display correctly.
-- Present the dashboard to a colleague and record actual feedback.
-- Make one dashboard improvement based on feedback.
-- Complete two CIA mentor interactions.
-- Confirm at least two W6D3 Git commits.
-- Complete the upstream rebase and GitHub push.
-- Create or update the W6D3 Pull Request.
 
 ### Day 3 Summary
 
@@ -223,3 +208,139 @@ Worked on the Employee Analytics BI Dashboard using SQL-based employee data. Pre
 **Overall Progress:** W6D1–W6D3 implementation work prepared. Final verification and submission requirements should be completed before marking the practical tasks fully finished.
 ____________________________________________________________________________________________________________
 
+## Day 4 — Thursday, 19 November 2026
+
+**Topic:** W6D4 — Combining Vanna + Superset for Executive Reporting
+
+**Hours Worked:** 1 hour (curriculum duration — update to actual hours)
+
+### Work Completed
+
+- Continued the Week 6 Natural Language to SQL Analyst project.
+- Prepared a lightweight Executive Reporting System using Vanna AI, Ollama, SQLite and FastAPI.
+- Organised the employee database and SQL reporting components.
+- Prepared 5 question–SQL training examples for natural-language query generation.
+- Included 10 SQL test cases for validating database query results.
+- Prepared the `POST /cia/sql-analyst` FastAPI endpoint for natural-language SQL analysis.
+- Created an HTML-based executive dashboard for presenting employee and salary statistics.
+- Included five visualisation types: bar chart, line chart, pie chart, KPI metric and data table.
+- Organised the project files, dataset, SQL queries and documentation.
+
+### Tools and Technologies Used
+
+Python, Vanna AI, Ollama, SQLite, SQL, FastAPI, HTML, CSS, JavaScript, Git, GitHub and VS Code.
+
+**Implementation Note:** Due to limited laptop storage, a lightweight HTML dashboard was used instead of installing Apache Superset. Actual Apache Superset integration remains incomplete.
+
+### Challenges and Solutions
+
+**Challenge 1: Limited Laptop Storage**
+
+**Solution:** Used a lightweight HTML dashboard that can run in a browser without Docker or Apache Superset installation.
+
+**Challenge 2: Combining SQL Analysis with Executive Reporting**
+
+**Solution:** Organised Vanna-based SQL generation, database queries and dashboard visualisations into one reporting project.
+
+**Challenge 3: Verifying SQL Query Correctness**
+
+**Solution:** Prepared 10 SQL test cases and reference queries to compare expected database results.
+
+### Testing and Validation
+
+- Prepared 5 Vanna training examples.
+- Included 10 SQL test cases.
+- Reference SQL tests were executed successfully during project preparation.
+- Prepared an offline executive dashboard.
+- Vanna-generated SQL and FastAPI end-to-end testing remain pending in the local Ollama environment.
+
+### Learning Outcomes
+
+- Understood how natural-language-to-SQL tools support business reporting.
+- Learned how Vanna can generate SQL queries from business questions.
+- Gained experience combining database analysis with dashboard visualisations.
+- Practised SQL testing and API integration.
+- Understood the role of business intelligence dashboards in executive decision-making.
+
+### W6D4 Deliverables
+
+| File | Description |
+|---|---|
+| `dashboard.html` | Executive reporting dashboard |
+| `company.db` | SQLite employee database |
+| `employees.csv` | Employee dataset |
+| `vanna_setup.py` | Vanna and Ollama configuration |
+| `train_vanna.py` | Five SQL training examples |
+| `test_queries.py` | Ten SQL test cases |
+| `test_results.csv` | SQL test results |
+| `main.py` | FastAPI SQL Analyst endpoint |
+| `queries.sql` | SQL reporting queries |
+| `README.md` | Project documentation |
+| `requirements.txt` | Python dependencies |
+
+### GitHub Details
+
+**Repository:** https://github.com/KumudaKH/cynaris-internship-kumuda
+
+**Branch:** `feat/w6d4-3m-kumuda`
+
+
+### Day 4 Summary
+
+Prepared an Executive Reporting System combining Vanna-based SQL analysis with a lightweight business intelligence dashboard. The project includes employee data, SQL training examples, query validation, a FastAPI endpoint and executive visualisations.
+
+**Status:** Project files prepared; local integration testing, CIA review and GitHub submission pending.
+
+---
+
+## Week 6 Progress Summary
+
+**Day 1 — W6D1:** Vanna setup, SQLite database connectivity, SQL training and FastAPI integration.
+
+**Day 2 — W6D2:** Domain-specific Vanna training, custom SQL patterns and query validation.
+
+**Day 3 — W6D3:** Employee Analytics Dashboard with five visualisations.
+
+**Day 4 — W6D4:** Executive Reporting System combining Vanna SQL analysis with dashboard reporting.
+
+**Overall Progress:** W6D1–W6D4 project implementation work prepared. Final testing, CIA review, GitHub verification and actual Apache Superset integration remain to be completed.
+
+____________________________________________________________________________________________________________
+
+## Day 5 — W6D5: NL SQL Dashboard on CRM Data
+
+**Intern Name:** Kumuda KH  
+**Role:** Data Analyst Intern (3 Months)  
+**Date:** 20 November 2026  
+**Branch:** `feat/w6d5-3m-kumuda`
+
+### Work Completed
+- Prepared a CRM Sales Intelligence Dashboard using Python, SQLite and SQL.
+- Created a sample CRM database with 50 customers and 80 sales opportunities.
+- Configured project components for Vanna AI and Ollama integration.
+- Prepared five natural-language question–SQL training examples.
+- Added ten SQL test cases for query validation.
+- Developed the FastAPI endpoint `POST /cia/sql-analyst`.
+- Created an HTML dashboard with bar charts, line charts, pie charts, KPI metrics and tables.
+- Organised CSV datasets, SQL queries, testing files and project documentation.
+
+### Technologies Used
+Python, Vanna AI, Ollama, SQLite, SQL, FastAPI, HTML, CSS, JavaScript, VS Code, Git and GitHub.
+
+### Challenges and Solutions
+The main challenge was integrating natural-language SQL generation with CRM data while working with limited laptop storage. Used a lightweight HTML dashboard instead of Apache Superset and prepared reference SQL queries for validating results.
+
+### Testing and Validation
+- Prepared five SQL training examples and ten test cases.
+- Executed reference SQL queries against the sample CRM database.
+- Prepared the dashboard for browser-based viewing.
+- Local Vanna/Ollama and FastAPI end-to-end testing remain pending verification.
+
+### Learning Outcomes
+- Understood natural-language-to-SQL generation using Vanna AI.
+- Improved CRM database management and SQL querying skills.
+- Learned how to present customer and sales insights using dashboards.
+- Gained experience organising an analytics project with FastAPI and GitHub.
+
+### Conclusion
+Prepared a CRM-based natural-language SQL analytics project combining database management, AI-assisted SQL generation and business intelligence visualisations. The project demonstrates how CRM data can be analysed to support business decisions.
