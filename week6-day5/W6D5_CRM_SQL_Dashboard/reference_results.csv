@@ -1,0 +1,11 @@
+test,reference_sql,result_rows
+Total customers,SELECT COUNT(*) AS total_customers FROM customers,[[50]]
+Opportunities by stage,"SELECT stage, COUNT(*) AS deal_count FROM opportunities GROUP BY stage ORDER BY stage","[[""Lead"", 14], [""Lost"", 12], [""Negotiation"", 12], [""Proposal"", 15], [""Qualified"", 12], [""Won"", 15]]"
+Won revenue,SELECT SUM(amount) AS won_revenue FROM opportunities WHERE stage = 'Won',[[744633]]
+Top won revenue region,"SELECT c.region, SUM(o.amount) AS revenue FROM opportunities o JOIN customers c ON c.customer_id=o.customer_id WHERE o.stage='Won' GROUP BY c.region ORDER BY revenue DESC LIMIT 1","[[""West"", 322677]]"
+Average deal value by stage,"SELECT stage, ROUND(AVG(amount),2) AS avg_amount FROM opportunities GROUP BY stage ORDER BY stage","[[""Lead"", 53583.36], [""Lost"", 50160.0], [""Negotiation"", 45762.75], [""Proposal"", 47160.0], [""Qualified"", 47057.25], [""Won"", 49642.2]]"
+Total opportunities,SELECT COUNT(*) AS total_opportunities FROM opportunities,[[80]]
+Won deals,SELECT COUNT(*) AS won_deals FROM opportunities WHERE stage = 'Won',[[15]]
+Customers by region,"SELECT region, COUNT(*) AS customer_count FROM customers GROUP BY region ORDER BY region","[[""East"", 12], [""North"", 13], [""South"", 13], [""West"", 12]]"
+Top 5 opportunities,"SELECT opportunity_id, amount FROM opportunities ORDER BY amount DESC, opportunity_id LIMIT 5","[[65, 99635], [64, 98256], [63, 96877], [62, 95498], [61, 94119]]"
+Won revenue by industry,"SELECT c.industry, SUM(o.amount) AS revenue FROM opportunities o JOIN customers c ON c.customer_id=o.customer_id WHERE o.stage='Won' GROUP BY c.industry ORDER BY c.industry","[[""Healthcare"", 226512], [""IT"", 53096], [""Manufacturing"", 322677], [""Retail"", 142348]]"

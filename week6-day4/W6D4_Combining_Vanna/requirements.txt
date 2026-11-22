@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+vanna[chromadb,ollama]<1
+ollama
+chromadb
